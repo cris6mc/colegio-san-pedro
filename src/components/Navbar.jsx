@@ -8,7 +8,7 @@ export default function Navbar() {
       <Link href={"/"}>
         <Image
           src="/images/LOGO.png"
-          alt="Descripción de la imagen"
+          alt="Logo"
           width={45}
           height={45}
         />
@@ -53,12 +53,12 @@ export default function Navbar() {
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                      <a href="/podcast" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
                         Podcast
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                      <a href="/lapbook" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
                         Lap-book
                       </a>
                     </li>
@@ -67,8 +67,8 @@ export default function Navbar() {
               </li>
 
               <li>
-                <a href="#" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                  Cartografia social
+                <a href="/feria" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  Feria Sabatina
                 </a>
               </li>
               <li>

@@ -1,11 +1,12 @@
 import Card from "@/components/Card";
 import { FaFilter } from "react-icons/fa";
 
-export default function Tikchikilab() {
+
+export default function PageLapBook() {
   return (
     <div>
       <div className='py-8 mx-10 h-18 items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400'>
-        <h1 className="text-5xl font-bold text-center text-white">TIKTOKEANDO CON EL MEDIO AMBIENTE</h1>
+        <h1 className="text-5xl font-bold text-center text-white">LAP BOOK</h1>
       </div>
       <h2 className="text-center p-6">
         Mision: Concientizacion del medio ambiente

@@ -18,7 +18,6 @@ function PageBienvenida() {
             Title={"Director"}
             Description={"Mg. Kiko G. Astete Lopez"}
             />
-            
         </div>
     </div>
   )

@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="absolute inset-x-0 top-0 transform -translate-y-1/3 flex justify-center">
             <Image
                         src="/images/LOGO.png" // Ruta de la imagen en la carpeta public
-                        alt="Descripción de la imagen"
+                        alt="Logo del colegio"
                         width={150} // Ancho de la imagen
                         height={90} // Altura de la imagen
                         // className="border-4 border-gray-300"
