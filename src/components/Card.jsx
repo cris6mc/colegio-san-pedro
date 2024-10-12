@@ -27,7 +27,7 @@ function Card({ ImageSRC, Title, Description, isButton }) {
 
     return (
         <>
-            <div className='m-10 justify-center items-center'>
+            <div className='flex flex-col justify-center items-center w-[246px] gap-4'>
                 <Image
                     className='rounded-2xl'
                     src={ImageSRC}
@@ -38,8 +38,8 @@ function Card({ ImageSRC, Title, Description, isButton }) {
                 />
                 <h1 className='font-bold text-center text-xl'>{Title}</h1>
                 <p className='text-center text-xl'>{Description}</p>
-                <div className="flex flex-row">
-                    {isButton && <button className='bg-blue-500 hover:bg-blue-700 text-white text-xs py-1 px-2 rounded'>
+                <div className="flex flex-row justify-center">
+                    {isButton && <button className='bg-blue-500 hover:bg-blue-700 text-white text-xs py-1 px-2  w-[120px] rounded-[100px] flex justify-center'>
                         <div className='flex flex-row items-center'
                             onClick={handleClick}
                         >
@@ -105,7 +105,7 @@ function Card({ ImageSRC, Title, Description, isButton }) {
                                     <input
                                         type="text"
                                         className="w-full p-2 rounded bg-white bg-opacity-20 text-black placeholder-black"
-                                        placeholder="Descripcion de la actividad"
+                                        placeholder="Descripción de la actividad."
                                         required
                                     />
                                 </div>

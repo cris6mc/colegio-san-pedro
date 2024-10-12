@@ -8,7 +8,7 @@ function Activities() {
   const { user, loading } = useUser(); // Acceder al usuario desde el contexto
   return (
     <div className='justify-center flex'>
-      <div>
+      <div className="flex flex-col gap-16">
         <div className="flex flex-row items-center justify-center">
           <h1 className='text-center font-bold text-2xl'>Actividades Institucionales</h1>
           {user && user.rol === 'admin' && (
@@ -20,23 +20,23 @@ function Activities() {
           )}
         </div>
 
-        <div className='flex flex-row'>
+        <div className='flex flex-row gap-[6rem]'>
           <Card
             ImageSRC={"/images/LOGO.png"}
-            Title={"Titulo de la actividad"}
-            Description={"Descripcion de la actividad"}
+            Title={"Tik-Chiki-Lab"}
+            Description={"Descripción de la actividad."}
             isButton={true}
           />
           <Card
             ImageSRC={"/images/LOGO.png"}
-            Title={"Titulo de la actividad"}
-            Description={"Descripcion de la actividad"}
+            Title={"Feria Sabatina"}
+            Description={"Descripción de la actividad."}
             isButton={true}
           />
           <Card
             ImageSRC={"/images/LOGO.png"}
-            Title={"Titulo de la actividad"}
-            Description={"Descripcion de la actividad"}
+            Title={"ActiYauyo"}
+            Description={"Descripción de la actividad."}
             isButton={true}
           />
         </div>

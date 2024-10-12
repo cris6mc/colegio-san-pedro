@@ -27,7 +27,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-blue-100 p-6 rounded-lg space-y-4">
+    <form onSubmit={handleSubmit} className="bg-blue-100 p-6 rounded-lg space-y-4 w-[524.28px]">
       <div className="grid grid-cols-2 gap-4">
         <input
           type="text"
@@ -69,7 +69,7 @@ const ContactForm = () => {
         placeholder="Mensaje *"
         value={formData.mensaje}
         onChange={handleChange}
-        className="w-full p-2 border border-gray-300 rounded"
+        className="w-full p-2 border border-gray-300 rounded resize-none"
         rows="4"
       />
       <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-full flex items-center justify-center space-x-2">

@@ -100,8 +100,16 @@ export default function Contacts() {
 
   return (
     <>
-      <footer className={`py-1 ${user ? 'bg-green-500' : 'bg-blue-100'} text-white`}>
-        <div className="container mx-auto flex justify-end items-center">
+      <footer className={`${user ? 'bg-gradient-to-r from-green-500 to-blue-500' : 'bg-blue-100'} text-white w-full flex justify-center items-center`}>
+        <div
+          className="w-full h-[38px] flex justify-end items-center pr-16"
+          style={{
+            background: 'linear-gradient(to right, #C3E8FC, #EAF0D7)',
+            transition: 'background 10s ease'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to left, #C3E8FC, #EAF0D7)'}
+          onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #C3E8FC, #EAF0D7)'}
+        >
           {user && user.rol === 'admin' && (
             <button
               className="bg-blue-600 text-white font-bold px-4 py-2 rounded-full mr-4"
@@ -111,14 +119,14 @@ export default function Contacts() {
             </button>
           )}
           <Link href="/login">
-            <button className="bg-blue-600 text-white font-bold px-4 py-2 rounded-full mr-4">
-              Intranet
+            <button className="bg-[#3481AD] text-white font-bold px-4 py-2 rounded-[10px] mr-4 h-full">
+              Admin.
             </button>
           </Link>
           <div className="flex items-center space-x-4">
-            <FaSearch size={20} color="grey" />
-            <FaFacebook size={20} color="grey" />
-            <FaTiktok size={20} color="grey" />
+            {/* <FaSearch size={20} color="grey" /> */}
+            <FaFacebook size={24} color="black" />
+            <FaTiktok size={20} color="black" />
           </div>
         </div>
       </footer>

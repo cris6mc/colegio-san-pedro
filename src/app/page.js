@@ -13,7 +13,7 @@ export default function Home() {
       <Activities/>
       <div className="my-14"></div>
       <Contact/>
-      <div className="my-14"></div>
+      {/* <div className="my-14"></div> */}
     </div>
   );
 }
