@@ -24,7 +24,7 @@ function Card({ ImageSRC, Title, Description, isButton }) {
 
     return (
         <>
-            <div className='m-10 justify-center items-center'>
+            <div className='flex flex-col justify-center items-center w-[246px] gap-4'>
                 <Image
                     className='rounded-2xl'
                     src={imageURL}
