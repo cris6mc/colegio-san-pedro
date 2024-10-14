@@ -1,32 +1,25 @@
 "use client";
 import CardProfile from '@/components/CardProfile';
 import Dropdown from '@/components/Dropdown';
-import React, { useState } from 'react';
+import { React, useEffect, useState } from "react";
+import { db } from "@/lib/firebase"; // Adjust the import according to your firebase configuration
+import { collection, getDocs } from "firebase/firestore";
 
 function PageDocentes() {
-    const personalAdministrativo = [
-        {
-            id: 1,
-            nombre: 'Juan Perez',
-            cargo: 'Director',
-            telefono: '123456789',
-            email: ''
-        },
-        {
-            id: 2,
-            nombre: 'Maria Lopez',
-            cargo: 'Secretaria',
-            telefono: '123456789',
-            email: ''
-        },
-        {
-            id: 3,
-            nombre: 'Carlos Rodriguez',
-            cargo: 'Portero',
-            telefono: '123456789',
-            email: ''
-        }
-    ];
+    const [usuarios, setUsuarios] = useState([]);
+
+    useEffect(() => {
+        const fetchUsuarios = async () => {
+            const querySnapshot = await getDocs(collection(db, "usuarios"));
+            const usuariosList = querySnapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            setUsuarios(usuariosList);
+        };
+
+        fetchUsuarios();
+      }, []);
 
     return (
         <div>
@@ -65,62 +58,15 @@ function PageDocentes() {
                 </h1>
             </div>
             <div className="grid grid-cols-3 gap-4 mx-10 border-blue-500 border rounded-lg">
-                <CardProfile
-                    nombre={"kiko"}
-                    image={"/images/Director.png"}
-                    cargo={"Director"}
-                    telefono={"123456789"}
-                    email={"jhagsdf@jdf.com"}
+                {usuarios.map(usuario => (
+                    <CardProfile
+                    nombre={usuario.nombre}
+                    image={usuario.imageURL}
+                    cargo={usuario.rol}
+                    telefono={"911223344"}
+                    email={usuario.email}
                 />
-                <CardProfile
-                    nombre={"kiko"}
-                    image={"/images/Director.png"}
-                    cargo={"Director"}
-                    telefono={"123456789"}
-                    email={"jhagsdf@jdf.com"}
-                />
-                <CardProfile
-                    nombre={"kiko"}
-                    image={"/images/Director.png"}
-                    cargo={"Director"}
-                    telefono={"123456789"}
-                    email={"jhagsdf@jdf.com"}
-                />
-                <CardProfile
-                    nombre={"kiko"}
-                    image={"/images/Director.png"}
-                    cargo={"Director"}
-                    telefono={"123456789"}
-                    email={"jhagsdf@jdf.com"}
-                />
-                <CardProfile
-                    nombre={"kiko"}
-                    image={"/images/Director.png"}
-                    cargo={"Director"}
-                    telefono={"123456789"}
-                    email={"jhagsdf@jdf.com"}
-                />
-                <CardProfile
-                    nombre={"kiko"}
-                    image={"/images/Director.png"}
-                    cargo={"Director"}
-                    telefono={"123456789"}
-                    email={"jhagsdf@jdf.com"}
-                />
-                <CardProfile
-                    nombre={"kiko"}
-                    image={"/images/Director.png"}
-                    cargo={"Director"}
-                    telefono={"123456789"}
-                    email={"jhagsdf@jdf.com"}
-                />
-                <CardProfile
-                    nombre={"kiko"}
-                    image={"/images/Director.png"}
-                    cargo={"Director"}
-                    telefono={"123456789"}
-                    email={"jhagsdf@jdf.com"}
-                />
+                ))}
             </div>
             <div className='h-20'></div>
         </div>

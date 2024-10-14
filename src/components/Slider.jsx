@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
 
 function Slider() {
   const sliderImages = [
@@ -17,13 +16,21 @@ function Slider() {
     const isFirstIndex = currentIndex === 0;
     const newIndex = isFirstIndex ? sliderImages.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-  }
+  };
 
   const nextSlide = () => {
     const isLastIndex = currentIndex === sliderImages.length - 1;
     const newIndex = isLastIndex ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-  }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   return (
     <div className="max-w-[1300px] h-[500px] w-full m-auto py-10 px-4 relative group">
@@ -40,14 +47,13 @@ function Slider() {
         <FaArrowRight className="hidden group-hover:block absolute m-5 top-1/2 right-4 text-5xl rounded-full p-2 bg-black/20 text-white cursor-pointer" />
       </div>
       {/* informacion del centro */}
-      <div onClick={nextSlide} className="absolute m-5 bottom-4 right-1/2 text-3xl rounded-full p-2 text-white" >
+      <div onClick={nextSlide} className="absolute m-5 bottom-4 right-1/2 text-3xl rounded-full p-2 text-white">
         <h1 className="text-center">
           <p className="font-bold text-3xl">{sliderImages[currentIndex].titulo}</p>
           <p className="text-lg">{sliderImages[currentIndex].descripcion}</p>
-          
-          <button className='bg-blue-500 hover:bg-blue-700 text-white text-xs py-1 px-2 rounded'>
-            <div className='flex flex-row items-center'>
-              <span className='mx-2'>Ver más</span>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white text-xs py-1 px-2 rounded">
+            <div className="flex flex-row items-center">
+              <span className="mx-2">Ver más</span>
               <FaArrowRight />
             </div>
           </button>
@@ -57,4 +63,4 @@ function Slider() {
   );
 }
 
-export default Slider
+export default Slider;

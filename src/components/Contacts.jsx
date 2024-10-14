@@ -3,9 +3,10 @@ import Link from "next/link";
 import { FaFacebook, FaSearch, FaTiktok, FaList } from "react-icons/fa";
 import { useUser } from "@/context/UserContext";
 import { useState, useEffect } from 'react';
-import { db, auth } from '@/lib/firebase'; // Asegúrate de tener configurado Firebase y exportado db y auth
+import { db, auth, storage } from '@/lib/firebase'; // Asegúrate de tener configurado Firebase y exportado db y auth
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore'; // Importar funciones desde firebase/firestore
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Importar funciones de Firebase Storage
 
 
 export default function Contacts() {
@@ -14,6 +15,11 @@ export default function Contacts() {
   const [showForm, setShowForm] = useState(false);
   const [userList, setUserList] = useState([]);
   const [newUser, setNewUser] = useState({ nombre: '', email: '', rol: '', password: '' });
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -57,13 +63,23 @@ export default function Contacts() {
   const handleAddUser = async (e) => {
     e.preventDefault();
     try {
+      if (!file) {
+        console.error("No file selected");
+        return;
+      }
       const createdUser = await createUserWithEmailAndPassword(auth, newUser.email, newUser.password);
+
+      const storageRef = ref(storage, `users/${file.name}`);
+      await uploadBytes(storageRef, file);
+      const url = await getDownloadURL(storageRef);
+      console.log(url);
 
       await setDoc(doc(db, 'usuarios', createdUser.user.uid), {
         id: createdUser.user.uid,
         nombre: newUser.nombre,
         email: newUser.email,
-        rol: newUser.rol
+        rol: newUser.rol,
+        imageURL: url
       });
 
       // Actualizar la lista de usuarios en el estado
@@ -100,7 +116,7 @@ export default function Contacts() {
 
   return (
     <>
-      <footer className={`py-1 ${user ? 'bg-green-500' : 'bg-blue-100'} text-white`}>
+      <footer className={`py-1 ${user ? 'bg-green-500' : 'bg-blue-100'} text-gray-500`}>
         <div className="container mx-auto flex justify-end items-center">
           {user && user.rol === 'admin' && (
             <button
@@ -116,7 +132,6 @@ export default function Contacts() {
             </button>
           </Link>
           <div className="flex items-center space-x-4">
-            <FaSearch size={20} color="grey" />
             <FaFacebook size={20} color="grey" />
             <FaTiktok size={20} color="grey" />
           </div>
@@ -125,7 +140,7 @@ export default function Contacts() {
 
       {showModal && (
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="flex flex-col items-center bg-white p-6 rounded-lg">
+          <div className="flex flex-col items-center bg-gray-200 p-6 rounded-lg max-h-full overflow-y-auto">
             <div className="flex flex-row mb-3 w-full justify-between items-center">
               <h2 className="text-xl font-bold justify-center">Colaboradores</h2>
               <button
@@ -135,24 +150,6 @@ export default function Contacts() {
                 X
               </button>
             </div>
-            <ul>
-              {userList.map((userItem) => (
-                <li key={userItem.id} className="flex mb-2">
-                  <div className="flex flex-1 flex-row justify-between items-center">
-                    <div className="flex flex-col m-3">
-                      <h3 className="font-bold">{userItem.nombre} <span className="font-medium text-red-900">({userItem.rol})</span> </h3>
-                      <span>{userItem.email}</span>
-                    </div>
-                    <button
-                      className="bg-blue-600 text-white px-2 py-1 rounded"
-                      onClick={() => handleRoleButtonClick(userItem.id)}
-                    >
-                      Cambiar Rol
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
             <button
               className="flex justify-center mt-4 bg-green-600 text-white px-4 py-2 rounded"
               onClick={handleAddUserClick}
@@ -162,8 +159,12 @@ export default function Contacts() {
 
             {showForm && (
               <form onSubmit={handleAddUser} className="mt-4">
+                <div>
+                  <label className="block text-gray-500">Imagen:</label>
+                  <input type="file" onChange={handleFileChange} />
+                </div>
                 <div className="mb-2">
-                  <label className="block text-white">Nombre:</label>
+                  <label className="block text-gray-500">Nombre:</label>
                   <input
                     type="text"
                     name="nombre"
@@ -174,7 +175,7 @@ export default function Contacts() {
                   />
                 </div>
                 <div className="mb-2">
-                  <label className="block text-white">Email:</label>
+                  <label className="block text-gray-500">Email:</label>
                   <input
                     type="email"
                     name="email"
@@ -185,7 +186,7 @@ export default function Contacts() {
                   />
                 </div>
                 <div className="mb-2">
-                  <label className="block text-white">Rol:</label>
+                  <label className="block text-gray-500">Rol:</label>
                   <div className="flex space-x-2">
                     <button
                       type="button"
@@ -211,7 +212,7 @@ export default function Contacts() {
                   </div>
                 </div>
                 <div className="mb-2">
-                  <label className="block text-white">Contraseña:</label>
+                  <label className="block text-gray-500">Contraseña:</label>
                   <input
                     type="password"
                     name="password"
@@ -226,6 +227,25 @@ export default function Contacts() {
                 </button>
               </form>
             )}
+            <div className="w-full border-t border-gray-500 my-4"></div>
+            <ul className="">
+              {userList.map((userItem) => (
+                <li key={userItem.id} className="flex mb-2">
+                  <div className="flex flex-1 flex-row justify-between items-center">
+                    <div className="flex flex-col m-3">
+                      <h3 className="font-bold">{userItem.nombre} <span className="font-medium text-red-900">({userItem.rol})</span> </h3>
+                      <span>{userItem.email}</span>
+                    </div>
+                    <button
+                      className="bg-blue-600 text-white px-2 py-1 rounded"
+                      onClick={() => handleRoleButtonClick(userItem.id)}
+                    >
+                      Cambiar Rol
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       )}

@@ -20,6 +20,7 @@ function PagePodcast() {
                         <Image
                             className='rounded-2xl'
                             src="/images/Colegio3.jpg"
+                            alt="Colegio" 
                             width={250}
                             height={120}
                         />

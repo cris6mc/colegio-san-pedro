@@ -11,9 +11,11 @@ function CardProfile({ nombre, image, cargo, telefono, email }) {
             <div className='flex flex-row'>
                 <Image
                     className='m-2'
-                    src={image}
+                    src={image || "/images/LOGO.png"}
+                    alt={nombre}
                     width={120}
                     height={120}
+                    unoptimized
                 />
                 <div className='flex flex-col justify-between'>
                     <h1>{cargo}</h1>
