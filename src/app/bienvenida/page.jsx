@@ -3,22 +3,29 @@ import Card from '@/components/Card'
 
 function PageBienvenida() {
   return (
-    <div>
-        <div className='py-8 mx-10 h-18 items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400'>
-            <h1 className="text-5xl font-bold text-center text-white">BIENVENIDA</h1>
+    <div style={{ height: '100%' }}>
+      <div className='py-8 mx-10 h-18 items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400'>
+        <h1 className="text-5xl font-bold text-center text-white">BIENVENIDA</h1>
+      </div>
+      <div className='flex flex-row justify-center gap-[4rem] m-[4rem] mb-[10rem]'>
+        <div className='justify-center items-center w-[800px]'>
+          <h1 className='text-[1rem] text-justify w-[800px]'>
+            <p className='font-semibold text-center text-4xl border-spacing-1'>
+              Nuestra Institución</p>
+            <p className='mt-[2rem]'>Somos una institución educativa ubicada en el corazón de Chupaca, rodeados de un entorno natural privilegiado que inspira aprendizaje y crecimiento. Nuestra misión es "formar estudiantes autónomos y competentes, preparados para satisfacer las necesidades y expectativas de la sociedad, promoviendo valores de identidad, respeto y responsabilidad" (Misión de la IE N° 30073) <br /><br />
+
+            Nos motiva la innovación y estamos comprometidos con la educación ambientalista, inclusiva e intercultural, en un marco de paz y convivencia. Nuestro currículum fomenta la participación activa en la comunidad local y global, preparando a nuestros alumnos para ser "ciudadanos íntegros y exitosos" (misión de nuestra institución).<br /><br />
+
+            Nuestro centro educativo refleja nuestro compromiso con el desarrollo sostenible y la educación de calidad. Le invitamos a visitar nuestras instalaciones, conocer a nuestro dedicado equipo docente y experimentar la importancia que damos a nuestros valores fundamentales de respeto, integridad, compromiso y empatía. Estamos seguros de que comprenderá por qué la Institución Educativa N° 30073 "San Pedro de Yauyo – Chupaca" es un referente en educación en la región. </p>
+          </h1>
         </div>
-        <div className='flex flex-row m-10 justify-center'>
-            <div className='justify-center items-center'>
-               <h1 className='text-2xl m-5 max-w-2xl text-justify'>
-                <p className='font-semibold text-center text-4xl'>Nuestra Institución</p>Bienvenido a la pagina de la escuela Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat sequi reiciendis exercitationem dolor voluptatem dolorem ipsum! Atque dolorum quia cumque exercitationem error ullam, at distinctio impedit harum unde ipsum cum? <br/>
-                </h1>
-            </div>
-            <Card 
-            ImageSRC={"/images/Director.png"}
-            Title={"Director"}
-            Description={"Mg. Kiko G. Astete Lopez"}
-            />
-        </div>
+        <Card
+          ImageSRC={"/images/Director.png"}
+          Title={"Director"}
+          Description={"Mg. Kiko G. Astete Lopez"}
+          style={{ height: '500px' }}
+        />
+      </div>
     </div>
   )
 }

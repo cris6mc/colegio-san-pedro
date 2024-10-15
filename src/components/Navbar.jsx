@@ -86,30 +86,11 @@ export default function Navbar() {
             </Dropdown>
           </li>
           <li>
-            <Dropdown text="Noticias">
-              <ul>
-                <li>
-                  <a href="/noticias" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                    Noticias
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                    otros
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                    otros
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                    otros
-                  </a>
-                </li>
-              </ul>
-            </Dropdown>
+            <button>
+              <Link href="/noticias" className="hover:bg-blue-500 text-black font-bold py-2 px-4 rounded">
+                Noticias
+              </Link>
+            </button>
           </li>
           <li>
             <button className=" hover:bg-blue-500 text-black font-bold py-2 px-4 rounded"

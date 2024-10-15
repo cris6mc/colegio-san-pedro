@@ -56,7 +56,7 @@ function Activities() {
           </div>
 
           <div>
-            <div className='flex flex-row'>
+            <div className='flex flex-row gap-[3rem]'>
               {activities.map(activity => (
                 <Card
                   key={activity.id}

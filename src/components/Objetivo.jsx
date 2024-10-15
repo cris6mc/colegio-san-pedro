@@ -9,11 +9,13 @@ function Objetivo({ image, title, description, color, row}) {
                 width={250}
                 height={120}
             />
-            <div className={`${color} flex-col items-center h-46 w-2/4`}>
+            <div className={`${color} flex flex-col self-center items-center justify-center h-46 w-[35%]`}>
+                <div className='flex flex-col items-center justify-center  w-[300px]'>
                 <hr className="border-t-2 border-white mx-10 my-10" />
                 <h1 className='text-center font-bold text-2xl text-white'>{title}</h1>
                 <h2 className='text-center justify-center text-white'>{description}</h2>
                 <hr className="border-t-2 border-white mx-10 my-10" />
+                </div>
             </div>
         </div>
     )

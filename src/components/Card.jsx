@@ -24,14 +24,15 @@ function Card({ ImageSRC, Title, Description, isButton }) {
 
     return (
         <>
-            <div className='flex flex-col justify-center items-center w-[246px] gap-4'>
+            <div className='flex flex-col justify-center items-center w-[246px] gap-4 transition-all duration-500 ease-in-out hover:bg-gradient-to-r from-[#D682E3] via-[#E9E576] to-[#C3E8FC] p-4 rounded-2xl'>
                 <Image
                     className='rounded-2xl'
                     src={imageURL}
                     alt={Title}
                     width={250}
-                    height={120}
+                    height={300}
                     unoptimized
+                    style={{borderRadius: '1rem', objectFit: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
                 />
                 <h1 className='font-bold text-center text-xl'>{truncateText(Title, 20)}</h1>
                 <p className='text-center text-xl '>{truncateText(Description, 25)}</p>
@@ -59,13 +60,14 @@ function Card({ ImageSRC, Title, Description, isButton }) {
                             </button>
                         </div>
                         <Image
-                    className='rounded-2xl'
-                    src={imageURL}
-                    alt={Title}
-                    width={250}
-                    height={120}
-                    unoptimized
-                />
+                            className='rounded-2xl'
+                            src={imageURL}
+                            alt={Title}
+                            width={250}
+                            height={300}
+                            unoptimized
+                            style={{ objectFit: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+                        />
                         <div className="flex flex-col m-3">
                             <h3 className="font-bold">{Title}</h3>
                             <span>{Description}</span>
