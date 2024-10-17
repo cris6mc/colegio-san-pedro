@@ -11,14 +11,14 @@ function PageObjetivos() {
                 image={"/images/Colegio2.jpg"}
                 title={"Visión"}
                 description={"“Ser una Institución Educativa líder que forme estudiantes autónomos y  competentes, orientados a satisfacer necesidad y expectativas de la sociedad”"}
-                color={"bg-green-400"}
+                color={"bg-[#88B603]"}
                 row={"flex-row"}
             />
             <Objetivo
                 image={"/images/Colegio2.jpg"}
                 title={"Misión"}
                 description={"“Somos una Institución Educativa ambientalista, innovadora, inclusiva e intercultural basada en una cultura de paz.”"}
-                color={"bg-orange-500"}
+                color={"bg-[#F4A261]"}
                 row={"flex-row-reverse"}
             />
 
@@ -33,42 +33,56 @@ function PageObjetivos() {
                 image={"/images/Colegio2.jpg"}
                 title={"Etica"}
                 description={"Promueve valores como paz, solidaridad, justicia, libertad, y responsabilidad, fortaleciendo la conciencia moral y la convivencia."}
-                color={"bg-green-400"}
+                color={"bg-[#6C3ECF]"}
                 row={"flex-row"}
             />
             <Objetivo
                 image={"/images/Colegio2.jpg"}
                 title={"Equidad"}
                 description={"Garantiza igualdad de oportunidades en el acceso, permanencia y trato dentro de un sistema educativo de calidad."}
-                color={"bg-orange-500"}
+                color={"bg-[#799528]"}
                 row={"flex-row-reverse"}
             />
             <Objetivo
                 image={"/images/Colegio2.jpg"}
                 title={"Inclusión"}
                 description={"Integra a personas con discapacidad y grupos marginados, contribuyendo a eliminar la pobreza y desigualdades."}
-                color={"bg-green-400"}
+                color={"bg-[#C1220D]"}
                 row={"flex-row"}
             />
             <Objetivo
                 image={"/images/Colegio2.jpg"}
                 title={"Calidad"}
                 description={"Asegura una educación integral, pertinente, flexible y continua, adecuada para todos los estudiantes."}
-                color={"bg-orange-500"}
+                color={"bg-[#00A896]"}
                 row={"flex-row-reverse"}
             />
             <Objetivo
                 image={"/images/Colegio2.jpg"}
                 title={"Democracia"}
                 description={"Promueve derechos humanos, libertad de conciencia y ciudadanía, fortaleciendo el respeto y el Estado de Derecho."}
-                color={"bg-green-400"}
+                color={"bg-[#E9EC6B]"}
                 row={"flex-row"}
             />
             <Objetivo
                 image={"/images/Colegio2.jpg"}
                 title={"Interculturalidad"}
                 description={"Valora la diversidad cultural y lingüística, promoviendo convivencia armónica y aprendizaje mutuo entre culturas."}
-                color={"bg-orange-500"}
+                color={"bg-[#3481AD]"}
+                row={"flex-row-reverse"}
+            />
+            <Objetivo
+                image={"/images/Colegio2.jpg"}
+                title={"Conciencia Ambiental"}
+                description={"Fomenta el respeto y conservación del entorno natural para garantizar la sostenibilidad de la vida.."}
+                color={"bg-[#9EA0A1]"}
+                row={"flex-row"}
+            />
+            <Objetivo
+                image={"/images/Colegio2.jpg"}
+                title={"Creatividad e Innovación"}
+                description={"Impulsa la creación de nuevos conocimientos en diversos campos, fomentando el arte y la cultura."}
+                color={"bg-[#F5CAC3]"}
                 row={"flex-row-reverse"}
             />
             <div className='h-20'></div>

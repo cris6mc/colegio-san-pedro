@@ -19,7 +19,7 @@ function PageDocentes() {
         };
 
         fetchUsuarios();
-      }, []);
+    }, []);
 
     return (
         <div>
@@ -28,29 +28,10 @@ function PageDocentes() {
             </div>
 
             <div className=' flex flex-col m-10 justify-center items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400'>
-                <h1 className='text-2xl m-5 max-w-lg  text-center'>
-                    Bienvenido a la pagina de la escuela Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat sequi reiciendis exercitationem dolor voluptatem dolorem ipsum! Atque dolorum quia cumque exercitationem error ullam, at distinctio impedit harum unde ipsum cum?
+                <h1 className='text-2xl m-5 max-w-lg  text-center mt-16 mb-16'>
+                    Contamos con personal altamente calificado y comprometido con la excelencia educativa. Cada miembro de nuestro cuerpo docente aporta una vasta experiencia en su campo, asegurando una formación integral y de calidad para nuestros estudiantes
                 </h1>
-                <div className='flex flex-row justify-between items-center'>
-                    <button className="bg-transparent border-blue-500 border rounded-lg  px-1 py-1 m-4 text-black hover:bg-blue-500 hover:text-white">
-                        Personal Administrativo
-                    </button>
-                    <button className="bg-transparent border-blue-500 border rounded-lg px-1 py-1 m-4 text-black hover:bg-blue-500 hover:text-white">
-                        Aula de imnovación
-                    </button>
-                    <button className="bg-transparent border-blue-500 border rounded-lg px-1 py-1 m-4 text-black hover:bg-blue-500 hover:text-white">
-                        Educación Física
-                    </button>
-                    <div className='border rounded-lg border-blue-500'>
-                        <Dropdown text="Niveles" options={
-                            [
-                                { title: "Inicial", href: "/" },
-                                { title: "Primaria", href: "/" },
-                            ]
-                        } />
-                    </div>
 
-                </div>
             </div>
             <div className="bg-transparent border-blue-500 border rounded-lg px-1 py-1 mx-10 text-black">
                 <h1 className='font-bold text-2xl'>
