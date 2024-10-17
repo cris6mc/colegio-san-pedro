@@ -43,29 +43,32 @@ export default function Navbar() {
             </Dropdown>
           </li>
           <li>
-            <Dropdown text="Actividades Institucionales">
+            <Dropdown text="Tik-Chiki-Lab" 
+            // translatex={"translate-x-20"}
+            >
               <ul>
                 <li>
-                  <Dropdown text="Tik-Chiki-Lab" translatex={"translate-x-20"}>
-                    <ul>
-                      <li>
-                        <a href="/tiktoks" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                          Tiktokeando con el ambiente
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/podcast" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                          Podcast
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/lapbook" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                          Lap-book
-                        </a>
-                      </li>
-                    </ul>
-                  </Dropdown>
+                  <a href="/tiktoks" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                    Tiktokeando con el ambiente
+                  </a>
                 </li>
+                <li>
+                  <a href="/podcast" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                    Podcast
+                  </a>
+                </li>
+                <li>
+                  <a href="/lapbook" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                    Lap-book
+                  </a>
+                </li>
+              </ul>
+            </Dropdown>
+          </li>
+          <li>
+            <Dropdown text="Actividades Institucionales">
+              <ul>
+
 
                 <li>
                   <a href="/feria" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">

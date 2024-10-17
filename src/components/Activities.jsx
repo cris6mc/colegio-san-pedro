@@ -58,13 +58,20 @@ function Activities() {
           <div>
             <div className='flex flex-row gap-[3rem]'>
               {activities.map(activity => (
-                <Card
-                  key={activity.id}
-                  ImageSRC={activity.imageURL || "/images/LOGO.png"} // Usa la URL de la imagen desde Firestore o una por defecto
-                  Title={activity.title || "Titulo de la actividad"} // Usa el título desde Firestore o uno por defecto
-                  Description={activity.description || "Descripcion de la actividad"} // Usa la descripción desde Firestore o una por defecto
-                  isButton={true}
-                />
+                <div className='flex flex-col'>
+                  {user && user.rol === 'admin' && (
+                    <botton className='bg-red-600 text-white px-3 py-1 rounded-full text-xl font-bold'>
+                    X
+                  </botton>
+                  )}
+                  <Card
+                    key={activity.id}
+                    ImageSRC={activity.imageURL || "/images/LOGO.png"} // Usa la URL de la imagen desde Firestore o una por defecto
+                    Title={activity.title || "Titulo de la actividad"} // Usa el título desde Firestore o uno por defecto
+                    Description={activity.description || "Descripcion de la actividad"} // Usa la descripción desde Firestore o una por defecto
+                    isButton={true}
+                  />
+                </div>
               ))}
             </div>
           </div>

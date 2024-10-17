@@ -1,20 +1,19 @@
 "use client";
 import Link from "next/link";
-import { FaFacebook, FaSearch, FaTiktok, FaList } from "react-icons/fa";
+import { FaFacebook, FaTiktok, FaList, FaTrash } from "react-icons/fa";
 import { useUser } from "@/context/UserContext";
 import { useState, useEffect } from 'react';
 import { db, auth, storage } from '@/lib/firebase'; // Asegúrate de tener configurado Firebase y exportado db y auth
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { collection, getDocs, doc, setDoc } from 'firebase/firestore'; // Importar funciones desde firebase/firestore
+import { collection, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore'; // Importar funciones desde firebase/firestore
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Importar funciones de Firebase Storage
-
 
 export default function Contacts() {
   const { user, loading } = useUser(); // Acceder al usuario desde el contexto
   const [showModal, setShowModal] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [userList, setUserList] = useState([]);
-  const [newUser, setNewUser] = useState({ nombre: '', email: '', rol: '', password: '' });
+  const [newUser, setNewUser] = useState({ nombre: '', rol: '', celular: '', email: '', password: '' });
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -56,9 +55,10 @@ export default function Contacts() {
     setNewUser({ ...newUser, [name]: value });
   };
 
-  const handleRoleChange = (role) => {
-    setNewUser({ ...newUser, rol: role });
-  };
+  const handleRoleButtonClick = (userId) => {
+    setSelectedUser(userId);
+  }
+
 
   const handleAddUser = async (e) => {
     e.preventDefault();
@@ -79,37 +79,39 @@ export default function Contacts() {
         nombre: newUser.nombre,
         email: newUser.email,
         rol: newUser.rol,
+        celular: newUser.celular,
         imageURL: url
       });
 
       // Actualizar la lista de usuarios en el estado
       setUserList([...userList, { id: createdUser.user.uid, ...newUser }]);
       setShowForm(false);
-      setNewUser({ nombre: '', email: '', rol: '', password: '' });
+      setNewUser({ nombre: '', email: '', rol: '', celular: '', password: '' });
     } catch (error) {
       console.error("Error adding user: ", error);
     }
   };
 
+  const handleDelete = (userId) => {
+    handleDeleteUser(userId);
+  };
 
-  const handleRoleUpdate = async (userId, newRole) => {
+  const handleDeleteUser = async (userId) => {
     try {
-      await setDoc(doc(db, 'usuarios', userId), { rol: newRole }, { merge: true });
-      setUserList(userList.map(user => user.id === userId ? { ...user, rol: newRole } : user));
+      await deleteDoc(doc(db, 'usuarios', userId));
+      setUserList(userList.filter(user => user.id !== userId));
+      setSelectedUser(null);
     } catch (error) {
-      console.error("Error updating user role: ", error);
+      console.error("Error deleting user: ", error);
     }
   };
 
   const [selectedUser, setSelectedUser] = useState(null);
 
-  const handleRoleButtonClick = (userId) => {
-    setSelectedUser(userId);
-  };
 
-  const handleRoleSelect = (role) => {
+  const handleRoleSelect = () => {
     if (selectedUser) {
-      handleRoleUpdate(selectedUser, role);
+      handleRoleUpdate(selectedUser);
       setSelectedUser(null);
     }
   };
@@ -183,12 +185,13 @@ export default function Contacts() {
                     required
                   />
                 </div>
+
                 <div className="mb-2">
-                  <label className="block text-gray-500">Email:</label>
+                  <label className="block text-gray-500">Celular:</label>
                   <input
-                    type="email"
-                    name="email"
-                    value={newUser.email}
+                    type="text"
+                    name="celular"
+                    value={newUser.celular}
                     onChange={handleInputChange}
                     className="w-full px-2 py-1 rounded"
                     required
@@ -221,6 +224,17 @@ export default function Contacts() {
                   </div>
                 </div>
                 <div className="mb-2">
+                  <label className="block text-gray-500">Email:</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={newUser.email}
+                    onChange={handleInputChange}
+                    className="w-full px-2 py-1 rounded"
+                    required
+                  />
+                </div>
+                <div className="mb-2">
                   <label className="block text-gray-500">Contraseña:</label>
                   <input
                     type="password"
@@ -246,10 +260,10 @@ export default function Contacts() {
                       <span>{userItem.email}</span>
                     </div>
                     <button
-                      className="bg-blue-600 text-white px-2 py-1 rounded"
+                      className="text-red-600 px-2 py-1 rounded"
                       onClick={() => handleRoleButtonClick(userItem.id)}
                     >
-                      Cambiar Rol
+                      <FaTrash />
                     </button>
                   </div>
                 </li>
@@ -261,34 +275,22 @@ export default function Contacts() {
 
       {selectedUser && (
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-gray-500 p-6 rounded-lg">
-            <h2 className="text-xl font-bold mb-4">Selecciona un nuevo rol</h2>
-            <div className="flex space-x-2">
+          <div className="flex flex-col bg-white p-6 rounded-lg">
+            <h2 className="text-xl font-bold mb-4">¿Estas Seguro que deseas eliminar a este usuario?</h2>
+            <div className="flex flex-row justify-between">
               <button
-                className="bg-blue-600 text-white px-4 py-2 rounded"
-                onClick={() => handleRoleSelect('admin')}
+                className="bg-red-600 text-white px-4 py-2 rounded"
+                onClick={() => handleDelete(selectedUser)}
               >
-                Admin
+                Eliminar
               </button>
               <button
                 className="bg-blue-600 text-white px-4 py-2 rounded"
-                onClick={() => handleRoleSelect('profesor')}
+                onClick={() => setSelectedUser(null)}
               >
-                Profesor
-              </button>
-              <button
-                className="bg-blue-600 text-white px-4 py-2 rounded"
-                onClick={() => handleRoleSelect('visitante')}
-              >
-                Visitante
+                Cancelar
               </button>
             </div>
-            <button
-              className="mt-4 bg-red-600 text-white px-4 py-2 rounded"
-              onClick={() => setSelectedUser(null)}
-            >
-              Cancelar
-            </button>
           </div>
         </div>
       )}

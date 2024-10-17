@@ -63,7 +63,7 @@ function PageDocentes() {
                     nombre={usuario.nombre}
                     image={usuario.imageURL}
                     cargo={usuario.rol}
-                    telefono={"911223344"}
+                    telefono={usuario.celular || " "}
                     email={usuario.email}
                 />
                 ))}
