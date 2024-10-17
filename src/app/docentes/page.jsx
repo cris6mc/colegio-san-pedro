@@ -39,13 +39,13 @@ function PageDocentes() {
                         Personal Administrativo
                     </h1>
                 </div>
-                <div className="grid grid-cols-3 gap-4 mx-10 border-blue-500 border rounded-lg">
+                <div className="grid grid-cols-3 gap-4 mx-10  border rounded-lg">
                     {usuarios.map(usuario => (
                         <CardProfile
                             nombre={usuario.nombre}
                             image={usuario.imageURL}
                             cargo={usuario.rol}
-                            telefono={"911223344"}
+                            telefono={"611223354"}
                             email={usuario.email}
                         />
                     ))}
