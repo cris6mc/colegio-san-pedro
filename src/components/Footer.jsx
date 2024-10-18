@@ -4,7 +4,7 @@ import { FaFacebook, FaHeart, FaTiktok } from 'react-icons/fa';
 
 export default function Footer() {
     return (
-        <div className="relative bg-[#D2D2D2] p-6 rounded-t-lg text-center hover:bg-gradient-to-r hover:from-[#E2EBC7] hover:to-[#C3E8FC] transition-all duration-500 ease-in-out">
+        <div className="relative bg-[#D2D2D2] p-6 mt-32 rounded-t-lg text-center hover:bg-gradient-to-r hover:from-[#E2EBC7] hover:to-[#C3E8FC] transition-all duration-500 ease-in-out">
             <div className="absolute inset-x-0 top-0 transform -translate-y-1/3 flex justify-center rou">
                 <Image
                     className="filter drop-shadow-[0_4px_0px_rgba(255,0,0,1)]"

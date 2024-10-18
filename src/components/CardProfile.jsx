@@ -5,10 +5,9 @@ import Image from 'next/image';
 
 function CardProfile({ nombre, image, cargo, telefono, email }) {
     return (
-        <div className='flex flex-col bg-slate-300 border-blue-500 border rounded-lg justify-center p-2 m-3 hover:bg-gradient-to-r from-gray-200 to-blue-400'>
-            <h1 className='p-2'>{nombre}</h1>
-            <hr className="border-t-2 border-white mx-1 my-1" />
-            <div className='flex flex-row'>
+        <div className='flex flex-col border rounded-lg justify-center p-2 m-3 hover:bg-gradient-to-r from-gray-200 to-blue-100'>
+            <h1 className='p-2 flex justify-center'>{nombre.toUpperCase()}</h1>
+            <div className='flex flex-row gap-4 border-dashed border-gray-400 border-t-2 pt-4'>
                 <Image
                     className='m-2'
                     src={image || "/images/LOGO.png"}
@@ -17,15 +16,15 @@ function CardProfile({ nombre, image, cargo, telefono, email }) {
                     height={120}
                     unoptimized
                 />
-                <div className='flex flex-col justify-between'>
-                    <h1>{cargo}</h1>
+                <div className='flex flex-col justify-around'>
+                    <h1>{cargo.toUpperCase()}</h1>
                     <div className='flex flex-row'>
-                        <FaPhone/> 
-                        <h1 className='ml-2'>{telefono}</h1>
+                        <FaPhone />
+                        <h1 className='ml-4'>{telefono}</h1>
                     </div>
                     <div className='flex flex-row'>
-                        <FaCartPlus/>
-                        <h1 className='ml-2'>{email}</h1>
+                        <FaCartPlus />
+                        <h1 className='ml-4 '>{email}</h1>
                     </div>
                 </div>
             </div>
