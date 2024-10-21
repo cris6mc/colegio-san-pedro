@@ -16,13 +16,16 @@ function PagePodcast() {
 
             <div className='flex flex-row m-10 justify-center mb-20'>
                 <div className='justify-center items-center'>
-                    <Link href='/podcast/episodio1'>
+                    <Link href='https://open.spotify.com/intl-es'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
                         <Image
                             className='rounded-2xl'
-                            src="/images/Colegio3.jpg"
+                            src="/images/podcast.png"
                             alt="Colegio" 
-                            width={250}
-                            height={120}
+                            width={600}
+                            height={300}
                         />
                     </Link>
                 </div>

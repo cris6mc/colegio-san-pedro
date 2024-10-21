@@ -37,6 +37,10 @@ export default function Contacts() {
     fetchUsers();
   }, []);
 
+  const handleRoleChange = (role) => {
+    setNewUser({ ...newUser, rol: role });
+  };
+
   const handleButtonClick = () => {
     setShowModal(true);
   };
@@ -64,7 +68,7 @@ export default function Contacts() {
     e.preventDefault();
     try {
       if (!file) {
-        console.error("No file selected");
+        setError("No file selected");
         return;
       }
       const createdUser = await createUserWithEmailAndPassword(auth, newUser.email, newUser.password);
@@ -87,8 +91,10 @@ export default function Contacts() {
       setUserList([...userList, { id: createdUser.user.uid, ...newUser }]);
       setShowForm(false);
       setNewUser({ nombre: '', email: '', rol: '', celular: '', password: '' });
+      setError(null); // Clear any previous errors
     } catch (error) {
       console.error("Error adding user: ", error);
+      alert("Error fetching users: " + error.message);
     }
   };
 

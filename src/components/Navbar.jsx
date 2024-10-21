@@ -43,9 +43,7 @@ export default function Navbar() {
             </Dropdown>
           </li>
           <li>
-            <Dropdown text="Tik-Chiki-Lab" 
-            // translatex={"translate-x-20"}
-            >
+            <Dropdown text="Tik-Chiki-Lab">
               <ul>
                 <li>
                   <a href="/tiktoks" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
@@ -68,8 +66,6 @@ export default function Navbar() {
           <li>
             <Dropdown text="Actividades Institucionales">
               <ul>
-
-
                 <li>
                   <a href="/feria" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
                     Feria Sabatina
@@ -78,11 +74,6 @@ export default function Navbar() {
                 <li>
                   <a href="#" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
                     Actiyauyo
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                    otros
                   </a>
                 </li>
               </ul>
@@ -98,7 +89,9 @@ export default function Navbar() {
           <li>
             <button className=" hover:bg-blue-500 text-black font-bold py-2 px-4 rounded"
             >
-              Contáctanos
+              <Link href="/contactos">
+                Contáctanos
+              </Link>
             </button>
           </li>
         </ul>
