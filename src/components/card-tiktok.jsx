@@ -6,7 +6,6 @@ import { FaArrowRight } from 'react-icons/fa';
 function CardTiktok({ ImageSRC, Title, Hashtags }) {
     const [showModal, setShowModal] = useState(false);
     const [hovered, setHovered] = useState(false);
-    const [liked, setLiked] = useState(false);
 
     const handleClick = () => {
         setShowModal(true);
@@ -48,9 +47,6 @@ function CardTiktok({ ImageSRC, Title, Hashtags }) {
                 >
                     <span className='mx-2'>Ver más</span>
                     <FaArrowRight />
-                </button>
-                <button onClick={() => setLiked(!liked)}>
-                    {liked ? 'Unlike' : 'Like'}
                 </button>
             </div>
 

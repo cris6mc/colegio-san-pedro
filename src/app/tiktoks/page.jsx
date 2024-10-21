@@ -33,50 +33,56 @@ export default function Tikchikilab() {
           Comunidad Local
         </button>
       </div>
-      <div className="grid grid-cols-4 grid-rows-2 gap-4 p-8">
+      <div className="grid justify-center items-center grid-cols-4 grid-rows-2 gap-4 p-8">
+        <div className="flex justify-center items-center">
+          <CardTiktok
+            Hashtags={"#Chupaca #ForYou #3roPrimaria"}
+            Title={"Dentro del Aula"}
+            ImageSRC={"/images/LOGO.png"}
+          />
+        </div>
+
 
         <CardTiktok
-          Hashtags={"#Chupaca #ForYou #3roPrimaria"}
-          Title={"Dentro del Aula"}
+          Hashtags={"#Chupaca #ForYou #Docentes"}
+          Title={"Docentes Activos"}
           ImageSRC={"/images/LOGO.png"}
         />
 
-        
-          <CardTiktok
-            Hashtags={"#Chupaca #ForYou #Docentes"}
-            Title={"Docentes Activos"}
-            ImageSRC={"/images/LOGO.png"}
-          />
-        
-          <CardTiktok
-            Hashtags={"#Comunidad #MedioAmbiente"}
-            Title={"Comunidad Activa"}
-            ImageSRC={"/images/LOGO.png"}
-          />
-        
-          <CardTiktok
-            Hashtags={"#IE #Responsabilidad"}
-            Title={"En la I.E."}
-            ImageSRC={"/images/LOGO.png"}
-          />
-        
-          <CardTiktok
-            Hashtags={"#ForYou #Ambiente"}
-            Title={"Actividades Ecológicas"}
-            ImageSRC={"/images/LOGO.png"}
-          />
-        
-          <CardTiktok
-            Hashtags={"#Chupaca #ForYou"}
-            Title={"Talleres Ambientales"}
-            ImageSRC={"/images/LOGO.png"}
-          />
-        
-          <CardTiktok
-            Hashtags={"#MedioAmbiente"}
-            Title={"Reciclaje en Acción"}
-            ImageSRC={"/images/LOGO.png"}
-          />
+        <CardTiktok
+          Hashtags={"#Comunidad #MedioAmbiente"}
+          Title={"Comunidad Activa"}
+          ImageSRC={"/images/LOGO.png"}
+        />
+
+        <CardTiktok
+          Hashtags={"#IE #Responsabilidad"}
+          Title={"En la I.E."}
+          ImageSRC={"/images/LOGO.png"}
+        />
+
+        <CardTiktok
+          Hashtags={"#ForYou #Ambiente"}
+          Title={"Actividades Ecológicas"}
+          ImageSRC={"/images/LOGO.png"}
+        />
+
+        <CardTiktok
+          Hashtags={"#Chupaca #ForYou"}
+          Title={"Talleres Ambientales"}
+          ImageSRC={"/images/LOGO.png"}
+        />
+
+        <CardTiktok
+          Hashtags={"#MedioAmbiente"}
+          Title={"Reciclaje en Acción"}
+          ImageSRC={"/images/LOGO.png"}
+        />
+        <CardTiktok
+          Hashtags={"#MedioAmbiente"}
+          Title={"Reciclaje en Acción"}
+          ImageSRC={"/images/LOGO.png"}
+        />
       </div>
     </div>
   );
