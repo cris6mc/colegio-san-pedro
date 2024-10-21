@@ -41,48 +41,55 @@ export default function Tikchikilab() {
             ImageSRC={"/images/LOGO.png"}
           />
         </div>
-
-
-        <CardTiktok
-          Hashtags={"#Chupaca #ForYou #Docentes"}
-          Title={"Docentes Activos"}
-          ImageSRC={"/images/LOGO.png"}
-        />
-
-        <CardTiktok
-          Hashtags={"#Comunidad #MedioAmbiente"}
-          Title={"Comunidad Activa"}
-          ImageSRC={"/images/LOGO.png"}
-        />
-
-        <CardTiktok
-          Hashtags={"#IE #Responsabilidad"}
-          Title={"En la I.E."}
-          ImageSRC={"/images/LOGO.png"}
-        />
-
-        <CardTiktok
-          Hashtags={"#ForYou #Ambiente"}
-          Title={"Actividades Ecológicas"}
-          ImageSRC={"/images/LOGO.png"}
-        />
-
-        <CardTiktok
-          Hashtags={"#Chupaca #ForYou"}
-          Title={"Talleres Ambientales"}
-          ImageSRC={"/images/LOGO.png"}
-        />
-
-        <CardTiktok
-          Hashtags={"#MedioAmbiente"}
-          Title={"Reciclaje en Acción"}
-          ImageSRC={"/images/LOGO.png"}
-        />
-        <CardTiktok
-          Hashtags={"#MedioAmbiente"}
-          Title={"Reciclaje en Acción"}
-          ImageSRC={"/images/LOGO.png"}
-        />
+        <div className="flex justify-center items-center">
+          <CardTiktok
+            Hashtags={"#Chupaca #ForYou #3roPrimaria"}
+            Title={"Dentro del Aula"}
+            ImageSRC={"/images/LOGO.png"}
+          />
+        </div>
+        <div className="flex justify-center items-center">
+          <CardTiktok
+            Hashtags={"#Chupaca #ForYou #3roPrimaria"}
+            Title={"Dentro del Aula"}
+            ImageSRC={"/images/LOGO.png"}
+          />
+        </div>
+        <div className="flex justify-center items-center">
+          <CardTiktok
+            Hashtags={"#Chupaca #ForYou #3roPrimaria"}
+            Title={"Dentro del Aula"}
+            ImageSRC={"/images/LOGO.png"}
+          />
+        </div>
+        <div className="flex justify-center items-center">
+          <CardTiktok
+            Hashtags={"#Chupaca #ForYou #3roPrimaria"}
+            Title={"Dentro del Aula"}
+            ImageSRC={"/images/LOGO.png"}
+          />
+        </div>
+        <div className="flex justify-center items-center">
+          <CardTiktok
+            Hashtags={"#Chupaca #ForYou #3roPrimaria"}
+            Title={"Dentro del Aula"}
+            ImageSRC={"/images/LOGO.png"}
+          />
+        </div>
+        <div className="flex justify-center items-center">
+          <CardTiktok
+            Hashtags={"#Chupaca #ForYou #3roPrimaria"}
+            Title={"Dentro del Aula"}
+            ImageSRC={"/images/LOGO.png"}
+          />
+        </div>
+        <div className="flex justify-center items-center">
+          <CardTiktok
+            Hashtags={"#Chupaca #ForYou #3roPrimaria"}
+            Title={"Dentro del Aula"}
+            ImageSRC={"/images/LOGO.png"}
+          />
+        </div>           
       </div>
     </div>
   );

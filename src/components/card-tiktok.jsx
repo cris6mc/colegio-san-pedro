@@ -26,8 +26,8 @@ function CardTiktok({ ImageSRC, Title, Hashtags }) {
     return (
         <>
             <div
-                className={`flex flex-col justify-center items-center w-[246px] h-[350px] gap-4 p-4 rounded-2xl transition-all duration-500 ease-in-out 
-                ${hovered ? 'bg-gradient-to-r from-[#D682E3] via-[#E9E576] to-[#C3E8FC]' : 'bg-white'}`}
+                className={`flex flex-col  justify-center items-center w-[246px] h-[350px] gap-4 p-4 rounded-2xl border-gray-200 border-2 transition-all duration-500 ease-in-out 
+                ${hovered ? 'bg-gradient-to-r from-[#D682E3] via-[#E9E576] to-[#C3E8FC]' : 'bg-white '}`}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
@@ -53,7 +53,7 @@ function CardTiktok({ ImageSRC, Title, Hashtags }) {
             {showModal && (
                 <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
                     <div className="flex flex-col items-center bg-white p-6 rounded-lg max-h-[80vh] overflow-y-auto">
-                        <div className="flex flex-row mb-3 w-full justify-between items-center">
+                        <div className="flex flex-row mb-3 w-full justify-between items-center border-black border-full border-solid border-2">
                             <button
                                 className="bg-red-600 text-white px-3 py-1 rounded-full text-xl font-bold"
                                 onClick={handleCloseModal}
