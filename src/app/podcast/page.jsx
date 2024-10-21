@@ -13,19 +13,15 @@ function PagePodcast() {
             <h3 className='text-center my-4'>
                 Misión: Concientización del medio ambiente
             </h3>
-
             <div className='flex flex-row m-10 justify-center mb-20'>
                 <div className='justify-center items-center'>
-                    <Link href='https://open.spotify.com/intl-es'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                    >
+                    <Link href='https://spotify.com' target="_blank">
                         <Image
                             className='rounded-2xl'
-                            src="/images/podcast.png"
+                            src="/images/podcast/InstanciasPodcast.png"
                             alt="Colegio" 
-                            width={600}
-                            height={300}
+                            width={1200}
+                            height={120}
                         />
                     </Link>
                 </div>

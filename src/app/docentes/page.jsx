@@ -201,178 +201,189 @@ function PageDocentes() {
                                 email={'gaby861992@gmail.com'}
                             />
                         </div>
+                        {/* Primaria */}
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'VILCHEZ HUAMAN, BERNABÉ'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 1° A'}
+                                telefono={'+51 910 830 539'}
+                                email={'bernabe.vilchez10@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'ESPINOZA VALENCIA, CECILIA NELLY'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 1° B'}
+                                telefono={'+51 943 829 131'}
+                                email={'cecilanellyespinoza12@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'SANTANA ALIAGA, ALICIA'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 1° C'}
+                                telefono={'+51 985 680 011'}
+                                email={'peruedu.alicia25@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'ROJAS VILCHEZ, REBECA'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 2° A'}
+                                telefono={'+51 994 897 975'}
+                                email={'rebeca.ro22@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'PEREZ JORGE, KARINA'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 2° B'}
+                                telefono={'+51 964 403 374'}
+                                email={'karjp07@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'GAVINO DE LA CRUZ, REBECA'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 2° C'}
+                                telefono={'+51 904 026 099'}
+                                email={'rebecagv12@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'LAGOS ORELLANA, MARGOT'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 3° A'}
+                                telefono={'+51 988 048 068'}
+                                email={'margotlore78@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'ORE CUSIPOMA, MARGOTH'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 3° B'}
+                                telefono={'+51 938 218 003'}
+                                email={'morecusipoma@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'VICENTE QUITO, HIDA LISBET'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 3° C'}
+                                telefono={'+51 967 982 065'}
+                                email={'lisbetvicentequito@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'ORDOÑEZ ARMAS, LEOVETA'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 4° A'}
+                                telefono={'+51 923 612 415'}
+                                email={'leovetaarmas1976@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'SALINAS GARCIA, SILVIO TEODOSIO'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 4° B'}
+                                telefono={'+51 932 043 636'}
+                                email={'salinagarsilvio@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'HUANAY CHICMANA, TERESA GLADYS'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 4° C'}
+                                telefono={'+51 959 836 197'}
+                                email={'teresahuanychicmana@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'PAUCAR SOCUALAYA, ROSA ESTRELLA'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 5° A'}
+                                telefono={'+51 970 976 952'}
+                                email={'rosaestrella.paucarsocualaya@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'LIZANO CERRÓN, HILDA'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 5° B'}
+                                telefono={'+51 980 442 300'}
+                                email={'hilda2019@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'MAYTA CARHUAIRCRA, MARTHA'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 5° C'}
+                                telefono={'+51 985 398 208'}
+                                email={'maytc891982@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'SALOMÉ VICHAUHAMÁN, EIDI'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 6° A'}
+                                telefono={'+51 999 829 512'}
+                                email={'eyidino@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'MALPARTIDA VEGA, EDER DAVID'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 6° B'}
+                                telefono={'+51 973 178 758'}
+                                email={'vegadve420@gmail.com'}
                             />
                         </div>
+
                         <div className="">
                             <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
+                                nombre={'ARCOS GALVÁN, SAÚL'}
                                 image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
+                                cargo={'DOCENTE - 6° C'}
+                                telefono={'+51 959 827 943'}
+                                email={'rccs76@hotmail.com'}
                             />
                         </div>
-                        <div className="">
-                            <CardProfile
-                                nombre={'ASTETE LOPEZ, KIKO GIL'}
-                                image={''}
-                                cargo={'DIRECTOR'}
-                                telefono={"+51 964 663 724"}
-                                email={'kikoasteteamoperu@gmail.com'}
-                            />
-                        </div>
-                        
+
+
+
                     </div>
                 </div>
             </div>
