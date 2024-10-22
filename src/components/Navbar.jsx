@@ -72,7 +72,7 @@ export default function Navbar() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  <a href="/actiyauyo" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
                     Actiyauyo
                   </a>
                 </li>

@@ -40,10 +40,16 @@ export default function PageFeria() {
   return (
     <div className="flex flex-col items-center gap-32">
       <div className="w-full" >
-        <SliderP />
+        <SliderP
+          title="Yauyo Lee"
+          button1Text="Yauyo Lee"
+          button2Text="Leer más"
+        />
       </div>
       <div className="flex flex-col justify-center items-center w-full">
-        <GradientLabel title="Feria Sabatina de Chupaca" />
+        <GradientLabel
+          title="Yauyo Lee"
+        />
         <div className="flex justify-center w-[80vw]">
           <div className="flex flex-col justify-center items-center gap-12 mt-12">
             <Image
@@ -58,82 +64,54 @@ export default function PageFeria() {
         </div>
       </div>
       <div className="flex flex-col justify-center w-[80vw]">
-        <GradientLabel title="Cartografia Social" />
+        <GradientLabel title="Actividades" />
         <div className="grid grid-cols-4 gap-12 mt-12">
           <div className="flex justify-center items-center">
             <CardCartografia
               ImageSRC={"/images/lapbook1.png"}
-              Title={"Cartografia"}
+              Title={"Festival de Lectura"}
               Author={"Juan Pérez"}
               Grade={"5to Primaria"}
               Description={"Este lapbook explica sobre reciclaje y su importancia."}
+              showAuthor={false}
+              showGrade={false}
             />
           </div>
           <div className="flex justify-center items-center">
             <CardCartografia
               ImageSRC={"/images/lapbook1.png"}
-              Title={"Cartografia"}
+              Title={"Festival de Lectura"}
               Author={"Juan Pérez"}
               Grade={"5to Primaria"}
               Description={"Este lapbook explica sobre reciclaje y su importancia."}
+              showAuthor={false}
+              showGrade={false}
             />
           </div>
           <div className="flex justify-center items-center">
             <CardCartografia
               ImageSRC={"/images/lapbook1.png"}
-              Title={"Cartografia"}
+              Title={"Dia del Libro"}
               Author={"Juan Pérez"}
               Grade={"5to Primaria"}
               Description={"Este lapbook explica sobre reciclaje y su importancia."}
-            />
-          </div>
-          
-          <div className="flex justify-center items-center">
-            <CardCartografia
-              ImageSRC={"/images/lapbook1.png"}
-              Title={"Cartografia"}
-              Author={"Juan Pérez"}
-              Grade={"5to Primaria"}
-              Description={"Este lapbook explica sobre reciclaje y su importancia."}
+              showAuthor={false}
+              showGrade={false}
             />
           </div>
           <div className="flex justify-center items-center">
             <CardCartografia
               ImageSRC={"/images/lapbook1.png"}
-              Title={"Cartografia"}
+              Title={"Concursos de Lectura"}
               Author={"Juan Pérez"}
               Grade={"5to Primaria"}
               Description={"Este lapbook explica sobre reciclaje y su importancia."}
+              showAuthor={false}
+              showGrade={false}
             />
           </div>
-          <div className="flex justify-center items-center">
-            <CardCartografia
-              ImageSRC={"/images/lapbook1.png"}
-              Title={"Cartografia"}
-              Author={"Juan Pérez"}
-              Grade={"5to Primaria"}
-              Description={"Este lapbook explica sobre reciclaje y su importancia."}
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <CardCartografia
-              ImageSRC={"/images/lapbook1.png"}
-              Title={"Cartografia"}
-              Author={"Juan Pérez"}
-              Grade={"5to Primaria"}
-              Description={"Este lapbook explica sobre reciclaje y su importancia."}
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <CardCartografia
-              ImageSRC={"/images/lapbook1.png"}
-              Title={"Cartografia"}
-              Author={"Juan Pérez"}
-              Grade={"5to Primaria"}
-              Description={"Este lapbook explica sobre reciclaje y su importancia."}
-            />
-          </div>
-          
+
+
         </div>
       </div>
     </div>
