@@ -41,7 +41,7 @@ export default function PageFeria() {
     <div className="flex flex-col items-center gap-32">
       <div className="w-full" >
         <SliderP
-          title="Yauyo Lee"
+          title="Actiyauyo"
           button1Text="Yauyo Lee"
           button2Text="Leer más"
         />
@@ -80,7 +80,7 @@ export default function PageFeria() {
           <div className="flex justify-center items-center">
             <CardCartografia
               ImageSRC={"/images/lapbook1.png"}
-              Title={"Festival de Lectura"}
+              Title={"Lectura en Familia"}
               Author={"Juan Pérez"}
               Grade={"5to Primaria"}
               Description={"Este lapbook explica sobre reciclaje y su importancia."}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-function CardCartografia({ ImageSRC, Title, Author, Grade, Description, showAuthor = true, showGrade = true }) {
+function CardCartografia({ ImageSRC, Title="Title", Author, Grade, Description="Description", showAuthor = true, showGrade = true }) {
     const [isHovered, setIsHovered] = useState(false);
 
     const truncateText = (text, maxLength) => {
@@ -20,7 +20,7 @@ function CardCartografia({ ImageSRC, Title, Author, Grade, Description, showAuth
         >
             <Image
                 className="rounded-lg"
-                src={"/images/LOGO.png"}
+                src={"/images/LOGO.png" || ImageSRC}
                 alt={Title}
                 width={150}
                 height={150}

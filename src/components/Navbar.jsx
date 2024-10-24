@@ -16,26 +16,26 @@ export default function Navbar() {
         </Link>
 
         <ul className="flex gap-4 items-center">
-          <li>
+          <li className=' w-[12rem]'>
             <Dropdown text="Nuestra Institución">
               <ul>
                 <li>
-                  <a href="/bienvenida" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  <a href="/bienvenida" className="block px-4 text-gray-800 hover:bg-blue-400 hover:text-white">
                     Bienvenida
                   </a>
                 </li>
                 <li>
-                  <a href="/objetivos" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  <a href="/objetivos" className="block px-4 text-gray-800 hover:bg-blue-400 hover:text-white">
                     Nuestros Objetivos
                   </a>
                 </li>
                 <li>
-                  <a href="/historia" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  <a href="/historia" className="block px-4 text-gray-800 hover:bg-blue-400 hover:text-white">
                     Nuestra Historia
                   </a>
                 </li>
                 <li>
-                  <a href="/docentes" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  <a href="/docentes" className="block px-4 text-gray-800 hover:bg-blue-400 hover:text-white">
                     Plantilla Docentes
                   </a>
                 </li>
@@ -46,17 +46,17 @@ export default function Navbar() {
             <Dropdown text="Tik-Chiki-Lab">
               <ul>
                 <li>
-                  <a href="/tiktoks" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
-                    Tiktokeando con el ambiente
+                  <a href="/tiktoks" className="block px-4 text-gray-800 hover:bg-blue-400 hover:text-white">
+                    Tiktok
                   </a>
                 </li>
                 <li>
-                  <a href="/podcast" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  <a href="/podcast" className="block px-4 text-gray-800 hover:bg-blue-400 hover:text-white">
                     Podcast
                   </a>
                 </li>
                 <li>
-                  <a href="/lapbook" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  <a href="/lapbook" className="block px-4 text-gray-800 hover:bg-blue-400 hover:text-white">
                     Lap-book
                   </a>
                 </li>
@@ -67,12 +67,12 @@ export default function Navbar() {
             <Dropdown text="Actividades Institucionales">
               <ul>
                 <li>
-                  <a href="/feria" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  <a href="/feria" className="block px-4 text-gray-800 hover:bg-blue-400 hover:text-white">
                     Feria Sabatina
                   </a>
                 </li>
                 <li>
-                  <a href="/actiyauyo" className="block px-4 text-gray-800 hover:bg-blue-500 hover:text-white">
+                  <a href="/actiyauyo" className="block px-4 text-gray-800 hover:bg-blue-400 hover:text-white">
                     Actiyauyo
                   </a>
                 </li>
@@ -81,7 +81,7 @@ export default function Navbar() {
           </li>
           <li>
             <button>
-              <Link href="/noticias" className="hover:bg-blue-500 text-black font-bold py-2 px-4 rounded">
+              <Link href="/noticias" className="hover:bg-blue-400 text-black font-bold py-2 px-4 rounded">
                 Noticias
               </Link>
             </button>

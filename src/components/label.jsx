@@ -1,19 +1,20 @@
 import React from 'react';
 
-const GradientLabel = ({ title }) => {
+const GradientLabel = ({ title, width, textAlign,justifyContent,color="white",borderRadius="0" }) => {
     const gradientStyle = {
-        background: 'linear-gradient(-45deg, #E9E576 0%, #C3E8FC 100%)',
+        background: 'linear-gradient(to right, #E9E576, #A8DFA3, #0C95DE)', // Updated to use a valid CSS gradient
         display: 'flex',
-        justifyContent: 'left', 
+        justifyContent: justifyContent, 
         paddingLeft: '5rem',      
-        // borderRadius: '20px',
-        textAlign: 'left',
-        width: '80vw',
+        borderRadius: borderRadius,
+        textAlign: textAlign,
+        color: color,
+        width: width,
     };
 
     return (
         <div style={gradientStyle}>
-            <h2 className='text-[4rem]  font-semibold'>{title}</h2>
+            <h2 className='text-[4rem] font-semibold'>{title}</h2>
         </div>
     );
 };
