@@ -4,11 +4,11 @@ import Card from './Card';
 import { useUser } from "@/context/UserContext";
 import { useState, useEffect } from 'react';
 import { db } from '@/lib/firebase'; // Asegúrate de tener configurado Firebase y exportado db
-import { collection, getDocs } from 'firebase/firestore'; // Importar funciones desde firebase/firestore
+import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore'; // Importar funciones desde firebase/firestore
 import AddCard from './AddCard';
 
 
-function Activities() {
+function Activities({coleccion}) {
   const { user, loading } = useUser(); // Acceder al usuario desde el contexto
   const [activities, setActivities] = useState([]);
   const [showEdit, setShowEdit] = useState(false);
@@ -22,10 +22,19 @@ function Activities() {
     setShowEdit(false);
   };
 
+  const handleDeleteCard = async (cardId) => {
+    try {
+      await deleteDoc(doc(db, coleccion, cardId));
+      setActivities(activities.filter(activity => activity.id !== cardId));
+    } catch (error) {
+      console.error("Error deleting user: ", error);
+    }
+  };
+
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const activitiesCollection = await getDocs(collection(db, 'actividades'));
+        const activitiesCollection = await getDocs(collection(db, coleccion));
         const activitiesData = activitiesCollection.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
@@ -44,13 +53,13 @@ function Activities() {
       <div className='justify-center flex'>
         <div>
           <div className="flex flex-row items-center justify-center">
-            <h1 className='text-center font-bold text-2xl'>Actividades Institucionales</h1>
+            <h1 className='text-center font-bold text-2xl'>{coleccion}</h1>
             {user && user.rol === 'admin' && (
               <button
                 className="bg-blue-600 text-white font-bold px-4 py-2 ml-4 rounded-full mr-4"
                 onClick={handleEdit}
               >
-                Añadir Actividad
+                Añadir {coleccion}
               </button>
             )}
           </div>
@@ -60,7 +69,10 @@ function Activities() {
               {activities.map(activity => (
                 <div className='flex flex-col'>
                   {user && user.rol === 'admin' && (
-                    <botton className='bg-red-600 text-white px-3 py-1 rounded-full text-xl font-bold'>
+                    <botton 
+                    className='bg-red-600 text-white w-10 px-3 py-1 rounded-full text-xl font-bold'
+                    onClick={() => handleDeleteCard(activity.id)} // Eliminar docuemnto
+                    > 
                     X
                   </botton>
                   )}
@@ -82,7 +94,7 @@ function Activities() {
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="flex flex-col items-center bg-white p-6 rounded-lg">
             <div className="flex flex-row mb-3 w-full justify-between items-center">
-              <h2 className="text-xl font-bold justify-center">Añadir Actividades</h2>
+              <h2 className="text-xl font-bold justify-center">Añadir {coleccion}</h2>
               <button
                 className="bg-red-600 text-white px-3 py-1 rounded-full text-xl font-bold"
                 onClick={handleCloseEdit}
@@ -90,7 +102,7 @@ function Activities() {
                 X
               </button>
             </div>
-            <AddCard Coleccion={"actividades"}></AddCard>
+            <AddCard Coleccion={coleccion}></AddCard>
           </div>
         </div>
       )}

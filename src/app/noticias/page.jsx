@@ -1,15 +1,15 @@
-export default function Noticias() {
+"use client";
+import React from 'react';
+import Activities from '@/components/Activities';
+
+
+function Noticias() {
   return (
-    <div>
-      <h1>Noticias</h1>
-      <section>
-        <h2>Logros</h2>
-        {/* Aquí puedes agregar contenido relacionado con logros */}
-      </section>
-      <section>
-        <h2>Noticias</h2>
-        {/* Aquí puedes agregar contenido relacionado con noticias */}
-      </section>
+    <div className='flex flex-col'>
+      <Activities coleccion={"noticias"}/>
+      <Activities coleccion={"logros"}/>
     </div>
-  );
+  )
 }
+
+export default Noticias;

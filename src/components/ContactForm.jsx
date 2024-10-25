@@ -1,15 +1,13 @@
 "use client";
 import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     nombre: '',
-    apellido: '',
     email: '',
-    numero: '',
-    mensaje: '',
-    acepto: false
+    mensaje: ''
   });
 
   const handleChange = (e) => {
@@ -22,8 +20,27 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lógica para enviar el formulario
-    console.log(formData);
+    // Configura los parámetros para EmailJS
+    const templateParams = {
+      from_name: formData.nombre,
+      to_name: 'Cristian',
+      from_email: formData.email,
+      message: formData.mensaje
+    };
+
+    emailjs.send('service_s13ah7t', 'template_cmsk2mv', templateParams, 'X3kmGa5Wf3ja30_2g')
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Mensaje enviado con éxito!');
+        setFormData({
+          nombre: '',
+          email: '',
+          mensaje: ''
+        });
+      }, (error) => {
+        console.error('FAILED...', error);
+        alert('Error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+      });
   };
 
   return (
@@ -38,28 +55,10 @@ const ContactForm = () => {
           className="p-2 border border-gray-300 rounded"
         />
         <input
-          type="text"
-          name="apellido"
-          placeholder="Apellido"
-          value={formData.apellido}
-          onChange={handleChange}
-          className="p-2 border border-gray-300 rounded"
-        />
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        <input
           type="email"
           name="email"
           placeholder="Email"
           value={formData.email}
-          onChange={handleChange}
-          className="p-2 border border-gray-300 rounded"
-        />
-        <input
-          type="text"
-          name="numero"
-          placeholder="Número"
-          value={formData.numero}
           onChange={handleChange}
           className="p-2 border border-gray-300 rounded"
         />
@@ -76,18 +75,6 @@ const ContactForm = () => {
         <FaCheck/>
         <span>Enviar Mensaje</span>
       </button>
-      <div className="flex items-center space-x-2">
-        <input
-          type="checkbox"
-          name="acepto"
-          checked={formData.acepto}
-          onChange={handleChange}
-          className="form-checkbox h-5 w-5 text-blue-600"
-        />
-        <label htmlFor="acepto">
-          He leído las políticas de privacidad y acepto el uso de mis datos personales.
-        </label>
-      </div>
     </form>
   );
 };

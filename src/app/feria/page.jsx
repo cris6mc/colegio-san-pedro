@@ -1,40 +1,9 @@
-"use client";
 import Card from "@/components/Card";
-import AddCard from '@/components/AddCard';
 import Image from 'next/image';
-import { React, useEffect, useState } from "react";
-import { db } from "@/lib/firebase"; // Adjust the import according to your firebase configuration
-import { collection, getDocs } from "firebase/firestore";
-import { useUser } from "@/context/UserContext";
-
-
+import { React} from "react";
+import Activities from "@/components/Activities";
 
 export default function PageFeria() {
-  const [cartografias, setCartografias] = useState([]);
-  const { user, loading } = useUser(); // Acceder al usuario desde el contexto
-  const [showEdit, setShowEdit] = useState(false);
-
-  const handleEdit = () => {
-    setShowEdit(true);
-  };
-
-  const handleCloseEdit = () => {
-    setShowEdit(false);
-  };
-
-  useEffect(() => {
-    const fetchCartografias = async () => {
-      const querySnapshot = await getDocs(collection(db, "cartografias"));
-      const cartografiaList = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setCartografias(cartografiaList);
-    };
-
-    fetchCartografias();
-  }, []);
-
 
   return (
     <div>
@@ -83,42 +52,7 @@ export default function PageFeria() {
       </p>
 
       <h2 className="text-5xl font-bold text-center text-black">Cartografia Social</h2>
-        {user && user.rol === 'admin' && (
-          <button
-            className="bg-blue-600 text-white font-bold px-4 py-2 ml-4 rounded-full mr-4"
-            onClick={handleEdit}
-          >
-            Añadir Nueva Cartografia
-          </button>
-        )}
-      {showEdit && (
-        <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="flex flex-col items-center bg-white p-6 rounded-lg">
-            <div className="flex flex-row mb-3 w-full justify-between items-center">
-              <h2 className="text-xl font-bold justify-center">Añadir Cartografia</h2>
-              <button
-                className="bg-red-600 text-white px-3 py-1 rounded-full text-xl font-bold"
-                onClick={handleCloseEdit}
-              >
-                X
-              </button>
-            </div>
-            <AddCard Coleccion={"cartografias"}></AddCard>
-          </div>
-        </div>
-      )}
-      <div className="grid grid-cols-4 gap-4 p-8">
-        {cartografias.map(cartografia => (
-          <div key={cartografia.id} className=" bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400">
-            <Card
-              Description={cartografia.description}
-              Title={cartografia.title}
-              ImageSRC={cartografia.imageURL}
-              isButton={true}
-            />
-          </div>
-        ))}
-      </div>
+      <Activities coleccion="cartografias" />
       <hr className="border-t-2 border-l-gray-500 my-4" />
       <div className="h-16"></div>
     </div>

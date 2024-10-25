@@ -54,7 +54,7 @@ function AddCard({ Coleccion }) {
                     value={Title}
                     onChange={(e) => setTitle(e.target.value)}
                     className="w-full p-2 rounded bg-white bg-opacity-20 text-black placeholder-black"
-                    placeholder="Titulo de la actividad"
+                    placeholder="Titulo"
                     required
                 />
             </div>
@@ -65,7 +65,7 @@ function AddCard({ Coleccion }) {
                     value={Description}
                     onChange={(e) => setDescription(e.target.value)}
                     className="w-full p-2 rounded bg-white bg-opacity-20 text-black placeholder-black"
-                    placeholder="Descripcion de la actividad"
+                    placeholder="Descripcion"
                     required
                 />
             </div>
@@ -76,7 +76,7 @@ function AddCard({ Coleccion }) {
                     value={Link}
                     onChange={(e) => setLink(e.target.value)}
                     className="w-full p-2 rounded bg-white bg-opacity-20 text-black placeholder-black"
-                    placeholder="Link de la actividad"
+                    placeholder="Link"
                     required
                 />
             </div>
