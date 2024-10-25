@@ -24,7 +24,8 @@ function Card({ ImageSRC, Title, Description, isButton }) {
 
     return (
         <>
-            <div className='flex flex-col justify-center items-center w-[246px] gap-4 transition-all duration-500 ease-in-out hover:bg-gradient-to-r from-[#D682E3] via-[#E9E576] to-[#C3E8FC] p-4 rounded-2xl'>
+            <div className='flex flex-col justify-center items-center w-[246px] gap-4 transition-all duration-500 ease-in-out hover:bg-gradient-to-r from-[#D682E3] via-[#E9E576] to-[#C3E8FC] p-4 rounded-2xl'
+            onClick={handleClick}>
                 <Image
                     className='rounded-2xl'
                     src={imageURL}

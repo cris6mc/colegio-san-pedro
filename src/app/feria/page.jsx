@@ -6,34 +6,24 @@ import Activities from "@/components/Activities";
 export default function PageFeria() {
 
   return (
-    <div>
-      <div className='py-8 mx-10 h-18 items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400'>
-        <h1 className="text-5xl font-bold text-center text-white">FERIA SABATINA</h1>
+    <div className="flex flex-col items-center gap-32">
+      <div className="w-full" >
+        <SliderP />
       </div>
-      <div className='flex flex-row m-10 justify-center'>
-        <div className='justify-center items-center'>
-          <h1 className='text-2xl m-5 max-w-2xl text-justify'>
-            <p className='font-semibold text-center text-4xl'>¡Feria Sabatina!</p>Bienvenido a la pagina de la escuela Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat sequi reiciendis exercitationem dolor voluptatem dolorem ipsum! Atque dolorum quia cumque exercitationem error ullam, at distinctio impedit harum unde ipsum cum? <br />
-          </h1>
-          <div className="flex flex-row ">
-            <button className='bg-blue-500 hover:bg-blue-700 text-white text-xs py-1 px-2 rounded'>
-              <div className='flex flex-row items-center'>
-                <span className='mx-2'>Cartografia Social</span>
-              </div>
-            </button>
-            <button className='bg-gray-500 hover:bg-gray-400 text-white text-xs py-1 px-2 rounded'>
-              <div className='flex flex-row items-center'>
-                <span className='mx-2'>Leer más</span>
-              </div>
-            </button>
+      <div className="flex flex-col justify-center items-center w-full">
+        <GradientLabel title="Feria Sabatina de Chupaca" />
+        <div className="flex justify-center w-[80vw]">
+          <div className="flex flex-col justify-center items-center gap-12 mt-12">
+            <Image
+              src="/images/Colegio.jpg"
+              width={700}
+              height={400} // Asegúrate de proporcionar un valor para height
+              alt="Imagen del Colegio"
+              style={{ objectFit: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+            />
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius magnam doloribus deserunt, consequuntur aut quia voluptates reprehenderit nulla, minima error temporibus amet nesciunt tempora dolorum laboriosam. Dolor quo dolore impedit.</p>
           </div>
-
         </div>
-        <Card
-          ImageSRC={"/images/Director.png"}
-          Title={"Director"}
-          Description={"Mg. Kiko G. Astete Lopez"}
-        />
       </div>
       <h2 className="text-5xl font-bold text-center text-black">Feria Sabatica de Chupaca</h2>
       <div className='flex flex-row m-10 justify-center mb-20'>
