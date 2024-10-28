@@ -1,7 +1,9 @@
-import Card from "@/components/Card";
+
 import Image from 'next/image';
 import { React} from "react";
 import Activities from "@/components/Activities";
+import GradientLabel from '@/components/label';
+import SliderP from '@/components/SliderFeria';
 
 export default function PageFeria() {
 

@@ -3,7 +3,7 @@ import React from 'react';
 import Card from './Card';
 import { useUser } from "@/context/UserContext";
 import { useState, useEffect } from 'react';
-import { db } from '@/lib/firebase'; // Asegúrate de tener configurado Firebase y exportado db
+import { db, storage } from '@/lib/firebase'; // Asegúrate de tener configurado Firebase y exportado db
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore'; // Importar funciones desde firebase/firestore
 import AddCard from './AddCard';
 
