@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FaArrowRight, FaEdit } from 'react-icons/fa';
 
-function Card({ ImageSRC, Title, Description, isButton }) {
+function Card({ ImageSRC, Title, Description, isButton, showAuthor = true, showGrade = true }) {
     const [showModal, setShowModal] = useState(false);
     const [imageURL, setImageURL] = useState(ImageSRC);
+
+    const [isHovered, setIsHovered] = useState(false);
 
     const handleClick = () => {
         setShowModal(true);
@@ -24,19 +26,41 @@ function Card({ ImageSRC, Title, Description, isButton }) {
 
     return (
         <>
-            <div className='flex flex-col justify-center items-center w-[246px] gap-4 transition-all duration-500 ease-in-out hover:bg-gradient-to-r from-[#D682E3] via-[#E9E576] to-[#C3E8FC] p-4 rounded-2xl'
-            onClick={handleClick}>
+            <div className={`flex flex-col justify-center items-center gap-2 w-[300px] min-h-[450px] h-full px-4 py-2 rounded-xl border-gray-300 border-2 shadow-lg transition-all duration-500 ease-in-out 
+            ${isHovered ? 'bg-gradient-to-r from-[#D682E3] via-[#E9E576] to-[#C3E8FC]' : 'bg-white'}`}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >   
                 <Image
-                    className='rounded-2xl'
+                    className='rounded-lg'
                     src={imageURL}
                     alt={Title}
-                    width={250}
-                    height={300}
+                    width={150}
+                    height={150}
                     unoptimized
-                    style={{borderRadius: '1rem', objectFit: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+                    style={{
+                        borderRadius: '0.75rem',
+                        objectFit: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        width: '100%',
+                        height: '50%',
+                        marginBottom: '1rem' // Ajusta la altura según sea necesario
+                    }}
                 />
-                <h1 className='font-bold text-center text-xl'>{truncateText(Title, 20)}</h1>
-                <p className='text-center text-xl '>{truncateText(Description, 25)}</p>
+                <h1 className='font-bold text-xl text-center'>{truncateText(Title, 20)}</h1>
+                <div className="text-gray-800 text-sm text-center max-w-[90%] overflow-hidden">
+                    Descripción:
+                    <p className='text-start text-[12px]' style={{
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
+                    }}>
+                        {Description}
+                    </p>
+                </div>
                 <div className="flex flex-row">
                     {isButton && <button className='bg-blue-500 hover:bg-blue-700 text-white text-xs py-1 px-2 rounded'>
                         <div className='flex flex-row items-center'
@@ -45,8 +69,7 @@ function Card({ ImageSRC, Title, Description, isButton }) {
                             <span className='mx-2'>Ver más</span>
                             <FaArrowRight />
                         </div>
-                    </button>
-                    }
+                    </button>}
                 </div>
             </div>
             {showModal && (

@@ -50,8 +50,8 @@ function Activities({coleccion}) {
 
   return (
     <>
-      <div className='justify-center flex'>
-        <div>
+      <div className='flex justify-center'>
+        <div className='flex flex-col gap-8'>
           <div className="flex flex-row items-center justify-center">
             <h1 className='text-center font-bold text-2xl'>{coleccion}</h1>
             {user && user.rol === 'admin' && (
@@ -65,12 +65,12 @@ function Activities({coleccion}) {
           </div>
 
           <div>
-            <div className='flex flex-row gap-[3rem]'>
+            <div className='grid grid-cols-3 grid-flow-row border-2 border-black gap-12'>
               {activities.map(activity => (
                 <div className='flex flex-col'>
                   {user && user.rol === 'admin' && (
                     <botton 
-                    className='bg-red-600 text-white w-10 px-3 py-1 rounded-full text-xl font-bold'
+                    className='bg-red-600 text-white w-10 px-3 py-1 rounded-full text-xl font-bold my-4'
                     onClick={() => handleDeleteCard(activity.id)} // Eliminar docuemnto
                     > 
                     X
