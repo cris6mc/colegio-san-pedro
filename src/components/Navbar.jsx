@@ -4,8 +4,8 @@ import Dropdown from './Dropdown';
 
 export default function Navbar() {
   return (
-    <nav className="bg-white flex gap-4 px-20 font-bold text-black h-[77px] w-auto justify-center">
-      <div className="w-[1276px] flex justify-around items-center">
+    <nav className="bg-white flex flex-wrap gap-4 font-bold text-black h-auto md:h-[77px] w-full justify-center">
+      <div className="w-full md:w-[1276px] flex flex-wrap justify-between items-center">
         <Link href={"/"} className="flex justify-center items-center">
           <Image
             src="/images/LOGO.png"
@@ -15,8 +15,8 @@ export default function Navbar() {
           />
         </Link>
 
-        <ul className="flex gap-4 items-center">
-          <li className=' w-[12rem]'>
+        <ul className="flex flex-wrap gap-4 items-center mt-4 md:mt-0">
+          <li className='w-full md:w-[12rem]'>
             <Dropdown text="Nuestra Institución">
               <ul>
                 <li>
@@ -42,7 +42,7 @@ export default function Navbar() {
               </ul>
             </Dropdown>
           </li>
-          <li>
+          <li className='w-full md:w-auto'>
             <Dropdown text="Tik-Chiki-Lab">
               <ul>
                 <li>
@@ -63,7 +63,7 @@ export default function Navbar() {
               </ul>
             </Dropdown>
           </li>
-          <li>
+          <li className='w-full md:w-auto'>
             <Dropdown text="Actividades Institucionales">
               <ul>
                 <li>
@@ -79,16 +79,15 @@ export default function Navbar() {
               </ul>
             </Dropdown>
           </li>
-          <li>
+          <li className='w-full md:w-auto'>
             <button>
               <Link href="/noticias" className="hover:bg-blue-400 text-black font-bold py-2 px-4 rounded">
                 Noticias
               </Link>
             </button>
           </li>
-          <li>
-            <button className=" hover:bg-blue-500 text-black font-bold py-2 px-4 rounded"
-            >
+          <li className='w-full md:w-auto'>
+            <button className="hover:bg-blue-500 text-black font-bold py-2 px-4 rounded">
               <Link href="/contactos">
                 Contáctanos
               </Link>

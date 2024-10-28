@@ -1,7 +1,4 @@
-"use client";
-
-import CardTiktok from "@/components/card-tiktok";
-import { FaFilter } from "react-icons/fa";
+import Activities from "@/components/Activities";
 
 export default function Tikchikilab() {
   return (
@@ -12,66 +9,7 @@ export default function Tikchikilab() {
       <h2 className="text-center p-6">
         Misión: Concientización del medio ambiente
       </h2>
-      <div className="w-[80vw] flex justify-center">
-        <div className="grid w-full grid-cols-4 grid-rows-2 gap-4 p-8">
-          <div className="flex justify-center items-center">
-            <CardTiktok
-              Hashtags={"#Chupaca #ForYou #3roPrimaria"}
-              Title={"Dentro del Aula"}
-              ImageSRC={"/images/LOGO.png"}
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <CardTiktok
-              Hashtags={"#Chupaca #ForYou #3roPrimaria"}
-              Title={"Dentro del Aula"}
-              ImageSRC={"/images/LOGO.png"}
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <CardTiktok
-              Hashtags={"#Chupaca #ForYou #3roPrimaria"}
-              Title={"Dentro del Aula"}
-              ImageSRC={"/images/LOGO.png"}
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <CardTiktok
-              Hashtags={"#Chupaca #ForYou #3roPrimaria"}
-              Title={"Dentro del Aula"}
-              ImageSRC={"/images/LOGO.png"}
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <CardTiktok
-              Hashtags={"#Chupaca #ForYou #3roPrimaria"}
-              Title={"Dentro del Aula"}
-              ImageSRC={"/images/LOGO.png"}
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <CardTiktok
-              Hashtags={"#Chupaca #ForYou #3roPrimaria"}
-              Title={"Dentro del Aula"}
-              ImageSRC={"/images/LOGO.png"}
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <CardTiktok
-              Hashtags={"#Chupaca #ForYou #3roPrimaria"}
-              Title={"Dentro del Aula"}
-              ImageSRC={"/images/LOGO.png"}
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <CardTiktok
-              Hashtags={"#Chupaca #ForYou #3roPrimaria"}
-              Title={"Dentro del Aula"}
-              ImageSRC={"/images/LOGO.png"}
-            />
-          </div>
-        </div>
-      </div>
+      <Activities coleccion={"tiktoks"} />
     </div>
   );
 }
