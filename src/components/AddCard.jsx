@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { db, storage } from '@/lib/firebase'; // Importar Firebase Storage
-import { collection, getDocs, addDoc } from 'firebase/firestore'; // Importar funciones de Firebase Firestore
+import { collection, addDoc } from 'firebase/firestore'; // Importar funciones de Firebase Firestore
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Importar funciones de Firebase Storage
 
 function AddCard({ Coleccion }) {
@@ -9,6 +9,8 @@ function AddCard({ Coleccion }) {
     const [Title, setTitle] = useState("");
     const [Description, setDescription] = useState("");
     const [Link, setLink] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
@@ -17,6 +19,8 @@ function AddCard({ Coleccion }) {
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
         if (file) {
+            setLoading(true);
+            setSuccess(false);
             try {
                 const storageRef = ref(storage, `images/${file.name}`);
                 await uploadBytes(storageRef, file);
@@ -36,8 +40,11 @@ function AddCard({ Coleccion }) {
                 setDescription('');
                 setLink('');
                 setFile(null);
+                setSuccess(true);
             } catch (error) {
                 console.error("Error uploading file and saving activity: ", error);
+            } finally {
+                setLoading(false);
             }
         }
     };
@@ -83,9 +90,11 @@ function AddCard({ Coleccion }) {
             <button
                 type="submit"
                 className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition"
+                disabled={loading}
             >
-                Guardar
+                {loading ? 'Cargando...' : 'Guardar'}
             </button>
+            {success && <div className="text-green-500 font-bold">¡Guardado con éxito!</div>}
         </form>
     );
 }

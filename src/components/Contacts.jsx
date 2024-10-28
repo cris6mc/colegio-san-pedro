@@ -149,8 +149,18 @@ export default function Contacts() {
           </Link>
           <div className="flex items-center space-x-4">
             {/* <FaSearch size={20} color="grey" /> */}
-            <FaFacebook size={24} color="black" />
-            <FaTiktok size={20} color="black" />
+            <Link
+              href="https://www.facebook.com/profile.php?id=100038548874917"
+              target="_blank"
+            >
+              <FaFacebook size={24} color="black" />
+            </Link>
+            <Link
+              href="https://www.facebook.com/profile.php?id=100038548874917"
+              target="_blank"
+            >
+              <FaTiktok size={20} color="black" />
+            </Link>
           </div>
         </div>
       </footer>

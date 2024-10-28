@@ -12,6 +12,8 @@ function Activities({coleccion}) {
   const { user, loading } = useUser(); // Acceder al usuario desde el contexto
   const [activities, setActivities] = useState([]);
   const [showEdit, setShowEdit] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [deleteMessage, setDeleteMessage] = useState("Eliminado correctamente");
 
 
   const handleEdit = () => {
@@ -21,13 +23,20 @@ function Activities({coleccion}) {
   const handleCloseEdit = () => {
     setShowEdit(false);
   };
-
+  
   const handleDeleteCard = async (cardId) => {
+    setIsDeleting(true);
+    setDeleteMessage("");
     try {
       await deleteDoc(doc(db, coleccion, cardId));
       setActivities(activities.filter(activity => activity.id !== cardId));
+      setDeleteMessage("Card deleted successfully!");
     } catch (error) {
       console.error("Error deleting user: ", error);
+      setDeleteMessage("Error deleting card.");
+    } finally {
+      setIsDeleting(false);
+      alert(deleteMessage);
     }
   };
 
@@ -70,7 +79,7 @@ function Activities({coleccion}) {
                 <div className='flex flex-col'>
                   {user && user.rol === 'admin' && (
                     <botton 
-                    className='bg-red-600 text-white w-10 px-3 py-1 rounded-full text-xl font-bold'
+                    className='bg-red-600 text-white w-10 px-3 py-1 rounded-full text-xl font-bold hover:cursor-pointer'
                     onClick={() => handleDeleteCard(activity.id)} // Eliminar docuemnto
                     > 
                     X
