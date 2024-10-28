@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 function CardProfile({ nombre, image, cargo, telefono, email }) {
     return (
-        <div className='flex flex-col border rounded-lg justify-center p-2 m-3 hover:bg-gradient-to-r from-gray-200 to-blue-100'>
+        <div className='flex flex-col border rounded-lg justify-center items-center p-2 m-3 hover:bg-gradient-to-r from-gray-200 to-blue-100'>
             <h1 className='p-2 flex justify-center'>{nombre.toUpperCase()}</h1>
             <div className='flex flex-row gap-4 border-dashed border-gray-400 border-t-2 pt-4'>
                 <Image
@@ -24,7 +24,7 @@ function CardProfile({ nombre, image, cargo, telefono, email }) {
                     </div>
                     <div className='flex flex-row'>
                         <FaCartPlus />
-                        <h1 className='ml-4 '>{email}</h1>
+                        <h1 className='ml-4 overflow-hidden text-ellipsis whitespace-nowrap max-w-[200px]'>{email}</h1>
                     </div>
                 </div>
             </div>

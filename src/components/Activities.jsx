@@ -74,15 +74,14 @@ function Activities({coleccion}) {
           </div>
 
           <div>
-            <div className='grid grid-cols-3 grid-flow-row border-2 border-black gap-12'>
+            <div className='grid grid-cols-3 grid-flow-row  gap-12'>
               {activities.map(activity => (
                 <div className='flex flex-col'>
                   {user && user.rol === 'admin' && (
                     <botton 
-                    className='bg-red-600 text-white w-10 px-3 py-1 rounded-full text-xl font-bold hover:cursor-pointer my-4'
+                    className='flex justify-center bg-red-600 text-white w-full px-3 py-1 rounded-lg text-xl font-bold hover:cursor-pointer my-4'
                     onClick={() => handleDeleteCard(activity.id)} // Eliminar docuemnto
-                    > 
-                    X
+                    >Borrar Tarjeta
                   </botton>
                   )}
                   <Card
