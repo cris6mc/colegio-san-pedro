@@ -71,8 +71,8 @@ function Activities({ coleccion }) {
             )}
           </div>
 
-          <div>
-            <div className="grid grid-cols-3 grid-flow-row  gap-12">
+          <div className="flex justify-center">
+            <div className="grid grid-cols-4 grid-flow-row  gap-12">
               {activities.map((activity) => (
                 <div key={activity.id} className="flex flex-col">
                   {user && user.rol === "admin" && (
