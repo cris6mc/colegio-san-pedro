@@ -13,7 +13,7 @@ export default function Contacts() {
   const [showModal, setShowModal] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [userList, setUserList] = useState([]);
-  const [newUser, setNewUser] = useState({ nombre: '', rol: '', celular: '', email: '', password: '' });
+  const [newUser, setNewUser] = useState({ nombre: '', rol: '', area:'', celular: '', email: '', password: '' });
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -83,6 +83,7 @@ export default function Contacts() {
         nombre: newUser.nombre,
         email: newUser.email,
         rol: newUser.rol,
+        area: newUser.area,
         celular: newUser.celular,
         imageURL: url
       });
@@ -90,7 +91,7 @@ export default function Contacts() {
       // Actualizar la lista de usuarios en el estado
       setUserList([...userList, { id: createdUser.user.uid, ...newUser }]);
       setShowForm(false);
-      setNewUser({ nombre: '', email: '', rol: '', celular: '', password: '' });
+      setNewUser({ nombre: '', email: '', rol: '', area: '', celular: '', password: '' });
       setError(null); // Clear any previous errors
     } catch (error) {
       console.error("Error adding user: ", error);
@@ -239,6 +240,20 @@ export default function Contacts() {
                     </button>
                   </div>
                 </div>
+
+                <div className="mb-2">
+                  <label className="block text-gray-500">Area:</label>
+                  <input
+                    type="text"
+                    name="area"
+                    value={newUser.area}
+                    onChange={handleInputChange}
+                    className="w-full px-2 py-1 rounded"
+                    required
+                  />
+                </div>
+
+
                 <div className="mb-2">
                   <label className="block text-gray-500">Email:</label>
                   <input
