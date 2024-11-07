@@ -89,7 +89,7 @@ export default function PageFeria() {
         justifyContent={"Lectura"}
       />
       <div>
-        <Activities coleccion={"Festival"} />
+        <Activities coleccion={"Lectura"} />
       </div>
 
       <GradientLabel
