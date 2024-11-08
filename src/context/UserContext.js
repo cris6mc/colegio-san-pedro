@@ -1,8 +1,8 @@
 "use client";
-import { createContext, useContext, useState, useEffect } from 'react';
-import { auth, db } from '@/lib/firebase';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
+import { createContext, useContext, useState, useEffect } from "react";
+import { auth, db } from "@/lib/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 
 const UserContext = createContext();
 
@@ -14,19 +14,19 @@ export const UserProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
         const uid = firebaseUser.uid;
-        console.log(`UID del usuario: ${uid}`);
+        // console.log(`UID del usuario: ${uid}`);
         try {
-          const userDoc = await getDoc(doc(db, 'usuarios', uid));
+          const userDoc = await getDoc(doc(db, "usuarios", uid));
           if (userDoc.exists()) {
             const userData = userDoc.data();
             setUser({ uid, ...userData });
-            console.log(`Info del usuario: ${JSON.stringify(userData)}`);
+            // console.log(`Info del usuario: ${JSON.stringify(userData)}`);
           } else {
-            console.error('No se encontró el usuario en Firestore');
+            console.error("No se encontró el usuario en Firestore");
             setUser(null);
           }
         } catch (error) {
-          console.error('Error al obtener el documento del usuario:', error);
+          console.error("Error al obtener el documento del usuario:", error);
           setUser(null);
         }
       } else {
