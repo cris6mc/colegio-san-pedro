@@ -70,7 +70,7 @@ export default function PageFeria() {
         title="Festival de Lectura"
         justifyContent={"start"}
       />
-      <div>
+      <div className="mb-16">
         <Activities coleccion={"Festival"} />
       </div>
 
