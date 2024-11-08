@@ -19,10 +19,6 @@ function CardProfile({ nombre, image, cargo, telefono, email }) {
                 <div className='flex flex-col justify-around'>
                     <h1>{cargo.toUpperCase()}</h1>
                     <div className='flex flex-row'>
-                        <FaPhone />
-                        <h1 className='ml-4'>{telefono}</h1>
-                    </div>
-                    <div className='flex flex-row'>
                         <FaCartPlus />
                         <h1 className='ml-4 overflow-hidden text-ellipsis whitespace-nowrap max-w-[200px]'>{email}</h1>
                     </div>
