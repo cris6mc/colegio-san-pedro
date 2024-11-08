@@ -1,9 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-// import { PrismaClient } from '@prisma/client';
-
-// const prisma = new PrismaClient();
+import React, { useEffect, useState } from "react";
 
 export default function SignUpPage({ params }) {
     const router = useRouter();
@@ -25,37 +22,6 @@ export default function SignUpPage({ params }) {
         }
     }, [])
 
-    // const onSubmit = async (e) => {
-    //     e.preventDefault()
-    //     if (password !== confirmPassword) {
-    //         setMessage('Las contraseñas no coinciden');
-    //         return;
-    //     }
-
-    //     if (params.id) {
-    //         const res = await fetch(`/api/users/${params.id}`, {
-    //             method: "PUT",
-    //             body: JSON.stringify({ name, email, password }),
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             }
-    //         })
-    //         const data = await res.json()
-    //         console.log(data)
-    //     } else {
-    //         const res = await fetch('/api/users', {
-    //             method: "POST",
-    //             body: JSON.stringify({ name, email, password }),
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             }
-    //         })
-    //         const data = await res.json();
-    //         setMessage("Se creo el usuario exitosamente")
-    //     }
-    //     router.refresh()
-    //     router.push('/');
-    // }
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-red-500">
