@@ -6,13 +6,13 @@ import Welcome from "@/components/Welcome";
 export default function Home() {
   return (
     <div className="flex flex-col justify-center bg-white">
-      <Slider/>
+      <Slider />
       <div className="my-14"></div>
-      <Welcome/>
+      <Welcome />
       <div className="my-14"></div>
-      <Activities coleccion={"Actividades"}/>
+      <Activities coleccion={"Actividades"} />
       <div className="my-14"></div>
-      <Contact/>
+      <Contact />
     </div>
   );
 }
