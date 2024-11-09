@@ -58,7 +58,7 @@ function Activities({ coleccion }) {
   return (
     <>
       <div className="flex justify-center">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 w-full max-w-7xl px-4">
           <div className="flex flex-row items-center justify-center">
             <h1 className="text-center font-bold text-2xl">{coleccion}</h1>
             {user && user.rol === "admin" && (
@@ -72,7 +72,7 @@ function Activities({ coleccion }) {
           </div>
 
           <div className="flex justify-center">
-            <div className="grid grid-cols-4 grid-flow-row  gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {activities.map((activity) => (
                 <div key={activity.id} className="flex flex-col">
                   {user && user.rol === "admin" && (
