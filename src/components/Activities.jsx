@@ -77,7 +77,7 @@ function Activities({ coleccion }) {
                 <div key={activity.id} className="flex flex-col">
                   {user && user.rol === "admin" && (
                     <button
-                      className="flex justify-center bg-red-600 text-white w-full px-3 py-1 rounded-lg text-xl font-bold hover:cursor-pointer my-4"
+                      className="flex justify-center w-[300px] bg-red-600 text-white  px-3 py-1 rounded-lg text-xl font-bold hover:cursor-pointer my-4"
                       onClick={() => handleDeleteCard(activity.id)} // Eliminar docuemnto
                     >
                       Borrar Tarjeta
@@ -100,7 +100,7 @@ function Activities({ coleccion }) {
 
       {showEdit && (
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="flex flex-col items-center bg-white p-6 rounded-lg">
+          <div className="flex flex-col items-center bg-white p-6 rounded-lg w-[95vw] sm:max-w-[25vw]">
             <div className="flex flex-row mb-3 w-full justify-between items-center">
               <h2 className="text-xl font-bold justify-center">
                 Añadir {coleccion}

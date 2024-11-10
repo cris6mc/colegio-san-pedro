@@ -1,33 +1,34 @@
-import Image from 'next/image'
-import React from 'react'
-import Link from 'next/link'
-
-
-
+import Image from "next/image";
+import React from "react";
+import Link from "next/link";
+import GradientLabel from "../../components/label";
 function PagePodcast() {
-    return (
-        <div>
-            <div className='py-8 mx-10 h-18 items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400'>
-                <h1 className="text-5xl font-bold text-center text-white">PODCAST</h1>
-            </div>
-            <h3 className='text-center my-4'>
-                Misión: Concientización del medio ambiente
-            </h3>
-            <div className='flex flex-row m-10 justify-center mb-20'>
-                <div className='justify-center items-center'>
-                    <Link href='https://spotify.com' target="_blank">
-                        <Image
-                            className='rounded-2xl'
-                            src="/images/podcast/InstanciasPodcast.png"
-                            alt="Colegio" 
-                            width={1200}
-                            height={120}
-                        />
-                    </Link>
-                </div>
-            </div>
+  return (
+    <div className="flex flex-col items-center">
+      <GradientLabel
+        title={"PODCAST"}
+        width={"80%"}
+        textAlign={"center"}
+        justifyContent={"center"}
+      />
+      <h3 className="text-center p-4 sm:p-6">
+        Misión: Concientización del medio ambiente
+      </h3>
+      <div className="flex flex-col sm:flex-row m-4 sm:m-10 justify-center mb-20">
+        <div className="flex justify-center items-center">
+          <Link href="https://spotify.com" target="_blank">
+            <Image
+              className="rounded-2xl"
+              src="/images/podcast/InstanciasPodcast.png"
+              alt="Colegio"
+              width={1200}
+              height={120}
+            />
+          </Link>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
-export default PagePodcast
+export default PagePodcast;

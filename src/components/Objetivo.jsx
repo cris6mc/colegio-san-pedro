@@ -6,7 +6,7 @@ function Objetivo({ image, title, description, color, row }) {
     <div className={`flex ${row} mx-8 justify-center`}>
       <Image src={image} alt={title} width={350} height={46} />
       <div
-        className={`${color} flex flex-col self-center items-center justify-center h-46 w-[35%]`}
+        className={`${color} flex flex-col self-center items-center justify-center h-46 w-full md:w-[35%]`}
       >
         <div className="flex flex-col items-center justify-center w-[300px]">
           <hr className="border-t border-white mx-10 my-10" />

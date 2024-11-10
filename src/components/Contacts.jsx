@@ -195,7 +195,7 @@ export default function Contacts() {
 
       {showModal && (
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="flex flex-col items-center bg-gray-200 p-6 rounded-lg max-h-full overflow-y-auto w-full max-w-lg">
+          <div className="flex flex-col items-center bg-gray-200 p-6 rounded-lg max-h-full overflow-y-auto w-[95vw] sm:max-w-[95vw] max-w-lg md:max-w-lg ">
             <div className="flex flex-row mb-3 w-full justify-between items-center">
               <h2 className="text-xl font-bold justify-center">
                 Colaboradores

@@ -29,73 +29,45 @@ function Noticias() {
 
         <div className="flex flex-col gap-8 mb-16">
           <div className="w-[80vw] flex flex-col justify-start gap-12">
-            <GradientLabel
-              width={"70vw"}
-              title={"Celebraciones"}
-              justifyContent={"start"}
-            />
+            <GradientLabel width={"70vw"} title={"Celebraciones"} />
             <Activities coleccion={"Celebraciones"} />
           </div>
         </div>
         <div className="flex flex-col gap-8 mb-16">
           <div className="w-[80vw] flex flex-col justify-start gap-12">
-            <GradientLabel
-              width={"70vw"}
-              title={"Anuncios"}
-              justifyContent={"start"}
-            />
+            <GradientLabel width={"70vw"} title={"Anuncios"} />
             <Activities coleccion={"Anuncios"} />
           </div>
         </div>
         <div className="flex flex-col gap-8 mb-16">
           <div className="w-[80vw] flex flex-col justify-start gap-12">
-            <GradientLabel
-              width={"70vw"}
-              title={"Proximos Evento"}
-              justifyContent={"start"}
-            />
+            <GradientLabel width={"70vw"} title={"Proximos Evento"} />
             <Activities coleccion={"Eventos"} />
           </div>
         </div>
         <div className="flex flex-col gap-8 mb-16">
           <div className="w-[80vw] flex flex-col justify-start gap-12">
-            <GradientLabel
-              width={"70vw"}
-              title={"Nuevos Articulos"}
-              justifyContent={"start"}
-            />
+            <GradientLabel width={"70vw"} title={"Nuevos Articulos"} />
             <Activities coleccion={"Articulos"} />
           </div>
         </div>
       </div>
       <div className="w-full flex flex-col items-center">
         <div className="mb-8">
-          <GradientLabel
-            width={"80vw"}
-            title={"Logros"}
-            justifyContent={"start"}
-          />
+          <GradientLabel width={"80vw"} title={"Logros"} />
         </div>
         <div className="flex flex-col gap-8 mb-16">
           <div
             className="w-[80vw] flex flex-col justify-start gap-12"
             ref={gradientLabelLogros}
           >
-            <GradientLabel
-              width={"70vw"}
-              title={"Trofeos"}
-              justifyContent={"start"}
-            />
+            <GradientLabel width={"70vw"} title={"Trofeos"} />
             <Activities coleccion={"Trofeos"} />
           </div>
         </div>
         <div className="flex flex-col gap-8 mb-16">
           <div className="w-[80vw] flex flex-col justify-start gap-12 ">
-            <GradientLabel
-              width={"70vw"}
-              title={"Gallardetes"}
-              justifyContent={"start"}
-            />
+            <GradientLabel width={"70vw"} title={"Gallardetes"} />
             <Activities coleccion={"Gallardetes"} />
           </div>
         </div>
