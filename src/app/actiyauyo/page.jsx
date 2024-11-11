@@ -1,16 +1,19 @@
 "use client";
 
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useRef } from "react";
 import { db } from "@/lib/firebase"; // Adjust the import according to your firebase configuration
 import Image from "next/image";
 import { collection, getDocs } from "firebase/firestore";
 import { useUser } from "@/context/UserContext";
 import SliderP from "@/components/SliderFeria";
 import GradientLabel from "@/components/label";
-import CardCartografia from "@/components/card-cartografia";
+import { scrollTo } from "../utils/scroll";
+
 import Activities from "@/components/Activities";
 
 export default function PageFeria() {
+  const gradientLabelActivities = useRef(null);
+  const gradientLabelReadMode = useRef(null);
   const [cartografias, setCartografias] = useState([]);
   const { user, loading } = useUser(); // Acceder al usuario desde el contexto
   const [showEdit, setShowEdit] = useState(false);
@@ -39,9 +42,17 @@ export default function PageFeria() {
   return (
     <div className="flex flex-col items-center gap-16">
       <div className="w-full">
-        <SliderP title="Yauyo Lee" button1Text="Explorar" />
+        <SliderP
+          title="Yauyo Lee"
+          button1Text="Explorar"
+          onButton1Click={() => scrollTo(gradientLabelActivities)}
+          onButton2Click={() => scrollTo(gradientLabelReadMode)}
+        />
       </div>
-      <div className="flex flex-col justify-center items-center w-full">
+      <div
+        className="flex flex-col justify-center items-center w-full"
+        ref={gradientLabelReadMode}
+      >
         <GradientLabel width={"80vw"} title="Yauyo Lee" />
         <div className="flex justify-center w-[80vw]">
           <div className="flex flex-col justify-center items-center gap-12 mt-12">
@@ -65,11 +76,13 @@ export default function PageFeria() {
           </div>
         </div>
       </div>
-      <GradientLabel
-        width={"80vw"}
-        title="Festival de Lectura"
-        justifyContent={"start"}
-      />
+      <div ref={gradientLabelActivities}>
+        <GradientLabel
+          width={"80vw"}
+          title="Festival de Lectura"
+          justifyContent={"start"}
+        />
+      </div>
       <div>
         <Activities coleccion={"Festival"} />
       </div>

@@ -1,18 +1,30 @@
+"use client";
 import Image from "next/image";
-import { React } from "react";
+import React, { useRef } from "react";
 import Activities from "@/components/Activities";
 import GradientLabel from "@/components/label";
 import SliderP from "@/components/SliderFeria";
+import { scrollTo } from "../utils/scroll";
 
 export default function PageFeria() {
+  const LabelDescription = useRef(null);
+  const labelCartografias = useRef(null);
   return (
     <div className="flex flex-col items-center gap-16">
       <div className="w-full">
-        <SliderP button1Text="Cartografia Social" />
+        <SliderP
+          title="Feria Sabatina de Chupaca"
+          button1Text="Cartografia Social"
+          onButton1Click={() => scrollTo(labelCartografias)}
+          onButton2Click={() => scrollTo(LabelDescription)}
+        />
       </div>
-      <div className="flex flex-col justify-center items-center w-full">
+      <div
+        className="flex flex-col justify-center items-center w-full"
+        ref={LabelDescription}
+      >
         <GradientLabel width={"80vw"} title="Feria Sabatina de Chupaca" />
-        <div className="flex justify-center w-[80vw]">
+        <div className="flex justify-center w-[80vw] ">
           <div className="flex flex-col justify-center items-center gap-12 mt-12">
             <Image
               src="/images/Colegio.jpg"
@@ -34,12 +46,13 @@ export default function PageFeria() {
           </div>
         </div>
       </div>
-
-      <GradientLabel
-        width={"80vw"}
-        title="Cartografias"
-        justifyContent={"start"}
-      />
+      <div ref={labelCartografias}>
+        <GradientLabel
+          width={"80vw"}
+          title="Cartografias"
+          justifyContent={"start"}
+        />
+      </div>
       <div className="flex flex-col items-start  ">
         <Activities coleccion="cartografias" />
       </div>
