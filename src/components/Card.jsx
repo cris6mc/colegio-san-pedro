@@ -46,23 +46,25 @@ function Card({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Image
-          className="rounded-lg"
-          src={imageURL}
-          alt={Title}
-          width={150}
-          height={150}
-          unoptimized
-          style={{
-            borderRadius: "0.75rem",
-            objectFit: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            width: "100%",
-            height: "50%",
-            marginBottom: "1rem", // Ajusta la altura según sea necesario
-          }}
-        />
+        <div className="relative w-full h-1/2 mb-4">
+          <Image
+            className="rounded-lg bg-gray-300"
+            src={imageURL}
+            alt={Title}
+            width={150}
+            height={150}
+            unoptimized
+            style={{
+              borderRadius: "0.75rem",
+              objectFit: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              width: "100%",
+              height: "100%",
+            }}
+          />
+          <div className="absolute inset-0 bg-black opacity-10 rounded-lg"></div>
+        </div>
         <h1 className="font-bold text-xl text-center">
           {truncateText(Title, 20)}
         </h1>
@@ -81,14 +83,28 @@ function Card({
             {truncateText(Description, 100)}
           </p>
         </div>
-        <div>
-          <label>Enlace</label>
-          <p>{Link}</p>
-        </div>
-        <div className="flex flex-row">
+        <a
+          href={
+            Link.startsWith("http://") || Link.startsWith("https://")
+              ? Link
+              : `http://${Link}`
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-700 underline hover:cursor-pointer"
+          style={{
+            userSelect: "none",
+          }}
+        >
+          EL LINK
+        </a>
+        <div className="flex justify-end">
           {isButton && (
-            <button className="bg-blue-500 hover:bg-blue-700 text-white text-xs py-1 px-2 rounded">
-              <div className="flex flex-row items-center" onClick={handleClick}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white text-xs py-1 px-2 rounded justify-end">
+              <div
+                className="flex flex-row items-center justify-end"
+                onClick={handleClick}
+              >
                 <span className="mx-2">Leer más</span>
                 <FaArrowRight />
               </div>
