@@ -46,15 +46,14 @@ export default function PageFeria() {
           </div>
         </div>
       </div>
-      <div ref={labelCartografias}>
-        <GradientLabel
-          width={"80vw"}
-          title="Cartografias"
-          justifyContent={"start"}
-        />
+      <div
+        className="flex flex-col justify-center items-center"
+        ref={labelCartografias}
+      >
+        <GradientLabel width={"80vw"} title="Cartografias" />
       </div>
       <div className="flex flex-col items-start  ">
-        <Activities coleccion="cartografias" />
+        <Activities coleccion="Cartografias" />
       </div>
       <hr className="border-t-2 border-l-gray-500 " />
       <div className="h-16"></div>

@@ -10,7 +10,7 @@ export default function Home() {
       <div className="my-14"></div>
       <Welcome />
       <div className="my-14"></div>
-      <Activities coleccion={"Actividades"} />
+      <Activities coleccion={"Actividades Institucionales "} />
       <div className="my-14"></div>
       <Contact />
     </div>

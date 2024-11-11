@@ -4,20 +4,22 @@ import Image from "next/image";
 function PageHistoria() {
   return (
     <div>
-      <div className="py-8 mx-10 h-18 items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400">
-        <h1 className="text-5xl font-bold text-center text-white">HISTORIA</h1>
+      <div className="py-8 mx-4 md:mx-10 h-18 items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400">
+        <h1 className="text-3xl md:text-5xl font-bold text-center text-white">
+          HISTORIA
+        </h1>
       </div>
       <div
         style={{ backgroundImage: "url(/images/Colegio3.jpg)" }}
-        className="flex flex-row m-10 justify-center relative"
+        className="flex flex-col md:flex-row m-4 md:m-10 justify-center relative"
       >
-        <h1 className="text-xl m-5 max-w-2xl text-justify z-10">
-          <p className="font-normal text-center text-4xl mb-4">
+        <h1 className="text-lg md:text-xl m-3 md:m-5 max-w-2xl text-justify z-10">
+          <p className="font-normal text-center text-3xl md:text-4xl mb-4">
             Nuestra Historia
           </p>
           <p>
             Inició una sección excedente de la Escuela Primaria de Aplicación
-            Anexa a la Normal “Teodoro Peñaloza”, hoy Instituto Superior Publico
+            Anexa a la Normal Teodoro Peñaloza, hoy Instituto Superior Publico
             Pedagógico. Fue así que, por falta de aulas, la mencionada sección
             funcionó en una casa particular del barrio La Libertad con su
             profesor Víctor Sihuay Maraví. Al pasar los años el número de
@@ -54,12 +56,13 @@ function PageHistoria() {
             actual local.
           </p>
         </h1>
-        <div className="absolute inset-0 bg-white opacity-75 "></div>
+        <div className="absolute inset-0 bg-white opacity-75"></div>
       </div>
 
-      <div className="flex flex-row m-10 justify-center gap-16 bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400">
+      <div className="flex flex-col items-center md:flex-row m-4 md:m-10 justify-center gap-8 md:gap-16 bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400">
         <Image
-          src="/images/Colegio2.jpg" // Ruta de la imagen en la carpeta public
+          className="mt-5"
+          src="/images/Colegio2.jpg"
           alt="Logo"
           width={280} // Ancho de la imagen
           height={120} // Altura de la imagen
@@ -77,7 +80,7 @@ function PageHistoria() {
           <p className="text-lg italic"></p>
         </div>
       </div>
-      <div className="h-10"></div>
+      <div className="h-2 sm:h-10"></div>
     </div>
   );
 }

@@ -1,19 +1,37 @@
 "use client";
 import Link from "next/link";
-import { FaFacebook, FaTiktok, FaList, FaTrash, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTiktok,
+  FaYoutube,
+  FaList,
+  FaTrash,
+} from "react-icons/fa";
 import { useUser } from "@/context/UserContext";
-import { useState, useEffect } from 'react';
-import { db, auth, storage } from '@/lib/firebase'; // Asegúrate de tener configurado Firebase y exportado db y auth
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { collection, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore'; // Importar funciones desde firebase/firestore
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Importar funciones de Firebase Storage
+import { useState, useEffect } from "react";
+import { db, auth, storage } from "@/lib/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  collection,
+  getDocs,
+  doc,
+  setDoc,
+  deleteDoc,
+} from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function Contacts() {
-  const { user, loading } = useUser(); // Acceder al usuario desde el contexto
+  const { user, loading } = useUser();
   const [showModal, setShowModal] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [userList, setUserList] = useState([]);
-  const [newUser, setNewUser] = useState({ nombre: '', rol: '', area:'', email: '', password: '' });
+  const [newUser, setNewUser] = useState({
+    nombre: "",
+    rol: "",
+    area: "",
+    email: "",
+    password: "",
+  });
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -23,10 +41,10 @@ export default function Contacts() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const usersCollection = await getDocs(collection(db, 'usuarios'));
-        const usersData = usersCollection.docs.map(doc => ({
+        const usersCollection = await getDocs(collection(db, "usuarios"));
+        const usersData = usersCollection.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data()
+          ...doc.data(),
         }));
         setUserList(usersData);
       } catch (error) {
@@ -61,8 +79,7 @@ export default function Contacts() {
 
   const handleRoleButtonClick = (userId) => {
     setSelectedUser(userId);
-  }
-
+  };
 
   const handleAddUser = async (e) => {
     e.preventDefault();
@@ -71,27 +88,30 @@ export default function Contacts() {
         setError("No file selected");
         return;
       }
-      const createdUser = await createUserWithEmailAndPassword(auth, newUser.email, newUser.password);
+      const createdUser = await createUserWithEmailAndPassword(
+        auth,
+        newUser.email,
+        newUser.password
+      );
 
       const storageRef = ref(storage, `users/${file.name}`);
       await uploadBytes(storageRef, file);
       const url = await getDownloadURL(storageRef);
       console.log(url);
 
-      await setDoc(doc(db, 'usuarios', createdUser.user.uid), {
+      await setDoc(doc(db, "usuarios", createdUser.user.uid), {
         id: createdUser.user.uid,
         nombre: newUser.nombre,
         email: newUser.email,
         rol: newUser.rol,
         area: newUser.area,
-        imageURL: url
+        imageURL: url,
       });
 
-      // Actualizar la lista de usuarios en el estado
       setUserList([...userList, { id: createdUser.user.uid, ...newUser }]);
       setShowForm(false);
-      setNewUser({ nombre: '', email: '', rol: '', area: '', password: '' });
-      setError(null); // Clear any previous errors
+      setNewUser({ nombre: "", email: "", rol: "", area: "", password: "" });
+      setError(null);
     } catch (error) {
       console.error("Error adding user: ", error);
       alert("Error fetching users: " + error.message);
@@ -104,8 +124,8 @@ export default function Contacts() {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await deleteDoc(doc(db, 'usuarios', userId));
-      setUserList(userList.filter(user => user.id !== userId));
+      await deleteDoc(doc(db, "usuarios", userId));
+      setUserList(userList.filter((user) => user.id !== userId));
       setSelectedUser(null);
     } catch (error) {
       console.error("Error deleting user: ", error);
@@ -113,7 +133,6 @@ export default function Contacts() {
   };
 
   const [selectedUser, setSelectedUser] = useState(null);
-
 
   const handleRoleSelect = () => {
     if (selectedUser) {
@@ -124,48 +143,51 @@ export default function Contacts() {
 
   return (
     <>
-      <footer className={`${user ? 'bg-gradient-to-r from-green-500 to-blue-500' : 'bg-blue-100'} text-white w-full flex justify-center items-center`}>
+      <footer
+        className={`${
+          user ? "bg-gradient-to-r from-green-500 to-blue-500" : "bg-blue-100"
+        } text-white w-full flex justify-center items-center`}
+      >
         <div
-          className="w-full h-[38px] flex justify-end items-center pr-16"
+          className="w-full h-[38px] flex justify-end items-center pr-4 md:pr-16"
           style={{
-            background: 'linear-gradient(to right, #C3E8FC, #EAF0D7)',
-            transition: 'background 10s ease'
+            background: "linear-gradient(to right, #C3E8FC, #EAF0D7)",
+            transition: "background 10s ease",
           }}
-          onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to left, #C3E8FC, #EAF0D7)'}
-          onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #C3E8FC, #EAF0D7)'}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.background =
+              "linear-gradient(to left, #C3E8FC, #EAF0D7)")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.background =
+              "linear-gradient(to right, #C3E8FC, #EAF0D7)")
+          }
         >
-          {user && user.rol === 'admin' && (
+          {user && user.rol === "admin" && (
             <button
-              className="bg-blue-600 text-white font-bold px-4 py-2 rounded-full mr-4"
+              className="bg-blue-600 text-white font-bold px-4 py-2 rounded-full mr-2 md:mr-4"
               onClick={handleButtonClick}
             >
               <FaList />
             </button>
           )}
           <Link href="/login">
-            <button className="bg-[#3481AD] text-white font-bold px-4 py-2 rounded-[10px] mr-4 h-full">
+            <button className="bg-[#3481AD] text-white font-bold px-4 py-2 rounded-[10px] mr-2 md:mr-4 h-full">
               Admin.
             </button>
           </Link>
-          <div className="flex items-center space-x-4">
-            {/* <FaSearch size={20} color="grey" /> */}
+          <div className="flex items-center space-x-2 md:space-x-4">
             <Link
               href="https://www.facebook.com/profile.php?id=100038548874917"
               target="_blank"
             >
               <FaFacebook size={24} color="black" />
             </Link>
-            <Link
-              href="https://www.facebook.com/profile.php?id=100038548874917"
-              target="_blank"
-            >
+            <Link href="https://www.tiktok.com" target="_blank">
               <FaTiktok size={20} color="black" />
             </Link>
-            <Link
-              href="https://www.facebook.com/profile.php?id=100038548874917"
-              target="_blank"
-            >
-              <FaYoutube size={27} color="black" />
+            <Link href="https://www.youtube.com" target="_blank">
+              <FaYoutube size={25} color="black" />
             </Link>
           </div>
         </div>
@@ -173,9 +195,11 @@ export default function Contacts() {
 
       {showModal && (
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="flex flex-col items-center bg-gray-200 p-6 rounded-lg max-h-full overflow-y-auto">
+          <div className="flex flex-col items-center bg-gray-200 p-6 rounded-lg max-h-full overflow-y-auto w-[95vw] sm:max-w-[95vw] max-w-lg md:max-w-lg ">
             <div className="flex flex-row mb-3 w-full justify-between items-center">
-              <h2 className="text-xl font-bold justify-center">Colaboradores</h2>
+              <h2 className="text-xl font-bold justify-center">
+                Colaboradores
+              </h2>
               <button
                 className="bg-red-600 text-white px-3 py-1 rounded-full text-xl font-bold"
                 onClick={handleCloseModal}
@@ -191,7 +215,7 @@ export default function Contacts() {
             </button>
 
             {showForm && (
-              <form onSubmit={handleAddUser} className="mt-4">
+              <form onSubmit={handleAddUser} className="mt-4 w-full">
                 <div>
                   <label className="block text-gray-500">Imagen:</label>
                   <input type="file" onChange={handleFileChange} />
@@ -213,22 +237,34 @@ export default function Contacts() {
                   <div className="flex space-x-2">
                     <button
                       type="button"
-                      className={`px-4 py-2 rounded ${newUser.rol === 'admin' ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}
-                      onClick={() => handleRoleChange('admin')}
+                      className={`px-4 py-2 rounded ${
+                        newUser.rol === "admin"
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-300"
+                      }`}
+                      onClick={() => handleRoleChange("admin")}
                     >
                       Admin
                     </button>
                     <button
                       type="button"
-                      className={`px-4 py-2 rounded ${newUser.rol === 'profesor' ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}
-                      onClick={() => handleRoleChange('profesor')}
+                      className={`px-4 py-2 rounded ${
+                        newUser.rol === "profesor"
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-300"
+                      }`}
+                      onClick={() => handleRoleChange("profesor")}
                     >
                       Profesor
                     </button>
                     <button
                       type="button"
-                      className={`px-4 py-2 rounded ${newUser.rol === 'visitante' ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}
-                      onClick={() => handleRoleChange('visitante')}
+                      className={`px-4 py-2 rounded ${
+                        newUser.rol === "visitante"
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-300"
+                      }`}
+                      onClick={() => handleRoleChange("visitante")}
                     >
                       Visitante
                     </button>
@@ -246,7 +282,6 @@ export default function Contacts() {
                     required
                   />
                 </div>
-
 
                 <div className="mb-2">
                   <label className="block text-gray-500">Email:</label>
@@ -270,18 +305,26 @@ export default function Contacts() {
                     required
                   />
                 </div>
-                <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+                <button
+                  type="submit"
+                  className="bg-blue-600 text-white px-4 py-2 rounded"
+                >
                   Crear Usuario
                 </button>
               </form>
             )}
             <div className="w-full border-t border-gray-500 my-4"></div>
-            <ul className="">
+            <ul className="w-full">
               {userList.map((userItem) => (
                 <li key={userItem.id} className="flex mb-2">
                   <div className="flex flex-1 flex-row justify-between items-center">
                     <div className="flex flex-col m-3">
-                      <h3 className="font-bold">{userItem.nombre} <span className="font-medium text-red-900">({userItem.rol})</span> </h3>
+                      <h3 className="font-bold">
+                        {userItem.nombre}{" "}
+                        <span className="font-medium text-red-900">
+                          ({userItem.rol})
+                        </span>{" "}
+                      </h3>
                       <span>{userItem.email}</span>
                     </div>
                     <button
@@ -301,7 +344,9 @@ export default function Contacts() {
       {selectedUser && (
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="flex flex-col bg-white p-6 rounded-lg">
-            <h2 className="text-xl font-bold mb-4">¿Estas Seguro que deseas eliminar a este usuario?</h2>
+            <h2 className="text-xl font-bold mb-4">
+              ¿Estas Seguro que deseas eliminar a este usuario?
+            </h2>
             <div className="flex flex-row justify-between">
               <button
                 className="bg-red-600 text-white px-4 py-2 rounded"
