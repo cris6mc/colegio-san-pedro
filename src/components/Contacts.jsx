@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { FaFacebook, FaTiktok, FaList, FaTrash } from "react-icons/fa";
+import { FaFacebook, FaTiktok, FaList, FaTrash, FaYoutube } from "react-icons/fa";
 import { useUser } from "@/context/UserContext";
 import { useState, useEffect } from 'react';
 import { db, auth, storage } from '@/lib/firebase'; // Asegúrate de tener configurado Firebase y exportado db y auth
@@ -160,6 +160,12 @@ export default function Contacts() {
               target="_blank"
             >
               <FaTiktok size={20} color="black" />
+            </Link>
+            <Link
+              href="https://www.facebook.com/profile.php?id=100038548874917"
+              target="_blank"
+            >
+              <FaYoutube size={27} color="black" />
             </Link>
           </div>
         </div>
