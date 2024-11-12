@@ -78,6 +78,23 @@ function Card({
             </p>
           </div>
         </div>
+        <div>
+          {/* <a
+            href={
+              Link.startsWith("http://") || Link.startsWith("https://")
+                ? Link
+                : `http://${Link}`
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-700 text-sm underline hover:cursor-pointer"
+            style={{
+              userSelect: "none",
+            }}
+          >
+            {Link}
+          </a> */}
+        </div>
         <div className="flex justify-end w-full">
           {isButton && (
             <button className="bg-blue-700 hover:bg-blue-800 text-white text-xs py-1 px-2 rounded flex justify-end transition-all duration-500 ease-in-out">
@@ -120,9 +137,21 @@ function Card({
               <h3 className="font-bold">{Title}</h3>
               <span>{Description}</span>
             </div>
-            <div>
-              <a>{Link}</a>
-            </div>
+            <a
+              href={
+                Link.startsWith("http://") || Link.startsWith("https://")
+                  ? Link
+                  : `http://${Link}`
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-700 text-sm underline hover:cursor-pointer"
+              style={{
+                userSelect: "none",
+              }}
+            >
+              {Link}
+            </a>
           </div>
         </div>
       )}
