@@ -63,7 +63,7 @@ function Activities({ coleccion }) {
             <h1 className="text-center font-bold text-2xl">{coleccion}</h1>
             {user && user.rol === "admin" && (
               <button
-                className="bg-blue-600 text-white font-bold px-4 py-2 ml-4 rounded-full mr-4"
+                className="bg-gray-500 text-white font-bold px-4 py-1 ml-4 rounded-full mr-4 select-none"
                 onClick={handleEdit}
               >
                 Añadir {coleccion}

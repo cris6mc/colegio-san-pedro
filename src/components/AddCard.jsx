@@ -52,9 +52,20 @@ function AddCard({ Coleccion }) {
   };
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit}>
+    <form className="space-y-6 w-full" onSubmit={handleSubmit}>
       <div>
-        <input type="file" onChange={handleFileChange} ref={fileInputRef} />
+        <label className="text-gray-400">Insertar imágen:</label>
+        <input
+          type="file"
+          onChange={handleFileChange}
+          ref={fileInputRef}
+          className="overflow-hidden w-full text-ellipsis"
+          style={{
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        />
       </div>
       <div>
         <label className="block text-black font-bold">Titulo</label>
