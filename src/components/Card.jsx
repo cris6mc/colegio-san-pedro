@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaArrowRight, FaEdit } from "react-icons/fa";
+import Link from "next/link";
 
 function Card({
   ImageSRC,
@@ -10,6 +11,7 @@ function Card({
   isButton,
   showAuthor = true,
   showGrade = true,
+  Link,
 }) {
   const [showModal, setShowModal] = useState(false);
   const [imageURL, setImageURL] = useState(ImageSRC);
@@ -25,10 +27,11 @@ function Card({
   };
 
   const truncateText = (text, maxLength) => {
+    if (!text) return "";
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "...";
     }
-    return text || "";
+    return text;
   };
 
   return (
@@ -87,13 +90,15 @@ function Card({
         </div>
       </div>
       {/* Modal */}
+      {/* Modal */}
       {showModal && (
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="flex flex-col items-center bg-white p-6 rounded-lg max-h-[80vh] overflow-y-auto">
+          <div className="flex flex-col items-center relative bg-white p-6 rounded-lg max-h-[80vh] w-[95%] sm:w-[90vw] overflow-y-auto">
             <div className="flex flex-row mb-3 w-full justify-between items-center">
               <button
-                className="bg-red-600 text-white px-3 py-1 rounded-full text-xl font-bold"
+                className="bg-red-600 text-white px-3 py-1 rounded-full text-xl font-bold sticky top-0 left-0"
                 onClick={handleCloseModal}
+                style={{ zIndex: 1000 }}
               >
                 X
               </button>
@@ -114,6 +119,9 @@ function Card({
             <div className="flex flex-col m-3">
               <h3 className="font-bold">{Title}</h3>
               <span>{Description}</span>
+            </div>
+            <div>
+              <a>{Link}</a>
             </div>
           </div>
         </div>

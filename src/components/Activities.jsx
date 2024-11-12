@@ -89,6 +89,7 @@ function Activities({ coleccion }) {
                     Description={
                       activity.description || "Descripcion de la actividad"
                     } // Usa la descripción desde Firestore o una por defecto
+                    Link={activity.link || "Link de la actividad"} // Usa el link desde Firestore o uno por defecto
                     isButton={true}
                   />
                 </div>

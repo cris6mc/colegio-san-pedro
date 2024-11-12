@@ -55,6 +55,17 @@ function AddCard({ Coleccion }) {
     <form className="space-y-6" onSubmit={handleSubmit}>
       <div>
         <input type="file" onChange={handleFileChange} ref={fileInputRef} />
+    <form
+      className="space-y-6 max-w-[95vw] sm:max-w-[25vw] px-2"
+      onSubmit={handleSubmit}
+    >
+      <div className="mb-2">
+        <label className="block text-gray-500">Imagen:</label>
+        <input
+          type="file"
+          onChange={handleFileChange}
+          className="w-full px-2 py-1 rounded"
+        />
       </div>
       <div>
         <label className="block text-black font-bold">Titulo</label>
