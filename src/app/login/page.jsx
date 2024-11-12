@@ -22,8 +22,8 @@ export default function LoginPage() {
       );
       const user = userCredential.user;
       console.log("Usuario autenticado:", user);
-      setErrorMessage(`Eres el exito: ${user.uid}`);
-      router.push("/dashboard");
+      setErrorMessage("Logueo correcto");
+      router.push("/");
     } catch (error) {
       setErrorMessage("Correo o contraseña incorrectos");
       console.error("Error en el login:", error);

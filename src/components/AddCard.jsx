@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { db, storage } from "@/lib/firebase"; // Importar Firebase Storage
 import { collection, addDoc } from "firebase/firestore"; // Importar funciones de Firebase Firestore
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; // Importar funciones de Firebase Storage
@@ -11,6 +11,7 @@ function AddCard({ Coleccion }) {
   const [Link, setLink] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -40,6 +41,7 @@ function AddCard({ Coleccion }) {
         setDescription("");
         setLink("");
         setFile(null);
+        fileInputRef.current.value = null; // Resetear el input de archivo
         setSuccess(true);
       } catch (error) {
         console.error("Error uploading file and saving activity: ", error);
@@ -52,7 +54,7 @@ function AddCard({ Coleccion }) {
   return (
     <form className="space-y-6" onSubmit={handleSubmit}>
       <div>
-        <input type="file" onChange={handleFileChange} />
+        <input type="file" onChange={handleFileChange} ref={fileInputRef} />
       </div>
       <div>
         <label className="block text-black font-bold">Titulo</label>

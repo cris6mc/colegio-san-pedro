@@ -34,12 +34,8 @@ function Card({
   return (
     <>
       <div
-        className={`flex flex-col justify-center items-center gap-2 w-[300px] min-h-[450px] h-full px-4 py-2 rounded-xl border-gray-300 border-2 shadow-lg transition-all duration-500 ease-in-out 
-            ${
-              isHovered
-                ? "bg-gradient-to-r from-[#D682E3] via-[#E9E576] to-[#C3E8FC]"
-                : "bg-white"
-            }`}
+        className={`flex flex-col justify-center items-start gap-2 w-[300px] min-h-[380px] h-[390px] px-3 rounded-[1rem] border shadow-2xl transition-all duration-500 ease-in-out 
+            ${isHovered ? "bg-blue-100" : "bg-white"}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -51,44 +47,46 @@ function Card({
           height={150}
           unoptimized
           style={{
-            borderRadius: "0.75rem",
+            borderRadius: "0.5rem",
             objectFit: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             width: "100%",
-            height: "50%",
-            marginBottom: "1rem", // Ajusta la altura según sea necesario
+            height: "60%",
+            marginBottom: "0rem", // Ajusta la altura según sea necesario
           }}
         />
-        <h1 className="font-bold text-xl text-center">
-          {truncateText(Title, 20)}
-        </h1>
-        <div className="text-gray-800 text-sm text-center max-w-[90%] overflow-hidden">
-          Descripción:
-          <p
-            className="text-start text-[12px]"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            {Description}
-          </p>
+        <div className="flex flex-col">
+          <h1 className="font-extrabold text-base py-[6px] w-full">
+            {truncateText(Title, 32)}
+          </h1>
+          <div className="text-gray-800 text-sm text-center w-full overflow-hidden">
+            <p
+              className="text-start text-[12px] text-gray-600 w-full"
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {Description}
+            </p>
+          </div>
         </div>
-        <div className="flex flex-row">
+        <div className="flex justify-end w-full">
           {isButton && (
-            <button className="bg-blue-500 hover:bg-blue-700 text-white text-xs py-1 px-2 rounded">
+            <button className="bg-blue-700 hover:bg-blue-800 text-white text-xs py-1 px-2 rounded flex justify-end">
               <div className="flex flex-row items-center" onClick={handleClick}>
-                <span className="mx-2">Ver más</span>
+                <span className="mx-2">Leer más</span>
                 <FaArrowRight />
               </div>
             </button>
           )}
         </div>
       </div>
+      {/* Modal */}
       {showModal && (
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="flex flex-col items-center bg-white p-6 rounded-lg max-h-[80vh] overflow-y-auto">
