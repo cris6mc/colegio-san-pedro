@@ -37,7 +37,7 @@ function Card({
   return (
     <>
       <div
-        className={`flex flex-col justify-center items-start gap-2 w-[300px] min-h-[380px] h-[390px] px-3 rounded-[1rem] border shadow-2xl transition-all duration-500 ease-in-out 
+        className={`flex flex-col justify-center items-start gap-2 w-[300px] min-h-[380px] h-[390px] px-3 rounded-[1rem] border shadow-xl transition-all duration-500 ease-in-out 
             ${isHovered ? "bg-blue-100" : "bg-white"}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -80,7 +80,7 @@ function Card({
         </div>
         <div className="flex justify-end w-full">
           {isButton && (
-            <button className="bg-blue-700 hover:bg-blue-800 text-white text-xs py-1 px-2 rounded flex justify-end">
+            <button className="bg-blue-700 hover:bg-blue-800 text-white text-xs py-1 px-2 rounded flex justify-end transition-all duration-500 ease-in-out">
               <div className="flex flex-row items-center" onClick={handleClick}>
                 <span className="mx-2">Leer más</span>
                 <FaArrowRight />
