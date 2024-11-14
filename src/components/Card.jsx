@@ -74,7 +74,7 @@ function Card({
                 textOverflow: "ellipsis",
               }}
             >
-              {Description}
+              {truncateText(Description, 82)}
             </p>
           </div>
         </div>
@@ -106,11 +106,12 @@ function Card({
           )}
         </div>
       </div>
+
       {/* Modal */}
       {/* Modal */}
       {showModal && (
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="flex flex-col items-center relative bg-white p-6 rounded-lg max-h-[80vh] w-[95%] sm:w-[90vw] overflow-y-auto">
+          <div className="flex flex-col items-center relative bg-white p-6 rounded-lg max-h-[80vh] w-[95%] sm:w-[50vw] overflow-y-auto">
             <div className="flex flex-row mb-3 w-full justify-between items-center">
               <button
                 className="bg-red-600 text-white px-3 py-1 rounded-full text-xl font-bold sticky top-0 left-0"
