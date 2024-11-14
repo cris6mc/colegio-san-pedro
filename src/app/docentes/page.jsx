@@ -4,6 +4,7 @@ import Dropdown from "@/components/Dropdown";
 import { React, useEffect, useState } from "react";
 import { db } from "@/lib/firebase"; // Adjust the import according to your firebase configuration
 import { collection, getDocs } from "firebase/firestore";
+import GradientLabel from "@/components/label";
 
 function PageDocentes() {
   const [usuarios, setUsuarios] = useState([]);
@@ -26,10 +27,13 @@ function PageDocentes() {
 
   return (
     <div>
-      <div className="py-8 mx-5 md:mx-10 h-18 items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400">
-        <h1 className="text-3xl md:text-5xl font-bold text-center text-white">
-          PLANILLA DOCENTE
-        </h1>
+      <div className="flex flex-col items-center gap-4 sm:gap-12">
+        <GradientLabel
+          title={"PLANILLA DOCENTES"}
+          width={"80%"}
+          textAlign={"center"}
+          justifyContent={"center"}
+        />
       </div>
 
       <div className="flex flex-col m-5 md:m-10 justify-center items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400">
@@ -44,7 +48,7 @@ function PageDocentes() {
       <div className="flex flex-col gap-8 m-5 md:m-10">
         {/* Personal Administrativo */}
         <div className="flex flex-col center gap-4">
-          <div className="bg-transparent border-blue-500 border rounded-lg px-2 py-2 mx-2 md:mx-10 text-black">
+          <div className="bg-transparent border-blue-500 border rounded-lg px-2 py-2   text-black">
             <h1 className="font-bold text-xl md:text-2xl flex justify-center">
               Personal Administrativo
             </h1>

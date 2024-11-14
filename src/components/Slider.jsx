@@ -26,7 +26,7 @@ function Slider() {
     },
   ];
 
-  const paths = ["/nosotros", "/actiyauyo", "/docentes"]; // Rutas para cada slide
+  const paths = ["/bienvenida", "/actiyauyo", "/docentes"]; // Rutas para cada slide
 
   const [currentIndex, setCurrentIndex] = useState(0);
 

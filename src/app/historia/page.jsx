@@ -1,17 +1,19 @@
 import React from "react";
 import Image from "next/image";
+import GradientLabel from "@/components/label";
 
 function PageHistoria() {
   return (
-    <div>
-      <div className="py-8 mx-4 md:mx-10 h-18 items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400">
-        <h1 className="text-3xl md:text-5xl font-bold text-center text-white">
-          HISTORIA
-        </h1>
-      </div>
+    <div className="flex flex-col items-center gap-4 sm:gap-12">
+      <GradientLabel
+        title={"HISTORIA"}
+        width={"80%"}
+        textAlign={"center"}
+        justifyContent={"center"}
+      />
       <div
         style={{ backgroundImage: "url(/images/Colegio3.jpg)" }}
-        className="flex flex-col md:flex-row m-4 md:m-10 justify-center relative"
+        className="flex flex-col md:flex-row m-4 md:m-10 justify-center relative min-w-[70vw]"
       >
         <h1 className="text-lg md:text-xl m-3 md:m-5 max-w-2xl text-justify z-10">
           <p className="font-normal text-center text-3xl md:text-4xl mb-4">
@@ -80,7 +82,6 @@ function PageHistoria() {
           <p className="text-lg italic"></p>
         </div>
       </div>
-      <div className="h-2 sm:h-10"></div>
     </div>
   );
 }

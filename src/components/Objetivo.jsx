@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function Objetivo({ image, title, description, color, row }) {
   return (
-    <div className={`flex ${row} mx-8 justify-center`}>
+    <div className={`flex ${row} mx-8 justify-center w-[85vw]`}>
       <Image src={image} alt={title} width={350} height={46} />
       <div
         className={`${color} flex flex-col self-center items-center justify-center h-46 w-full md:w-[35%]`}

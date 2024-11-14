@@ -1,21 +1,23 @@
 import React from "react";
 import Card from "@/components/Card";
+import GradientLabel from "@/components/label";
 
 function PageBienvenida() {
   return (
-    <div className=" flex flex-col">
-      <div className="py-8 mx-4 lg:mx-10 h-18 flex items-center bg-gradient-to-r from-yellow-200 via-green-300 to-blue-400">
-        <h1 className="text-3xl lg:text-5xl font-bold text-center text-white w-full">
-          BIENVENIDA
-        </h1>
-      </div>
-      <div className="flex flex-col lg:flex-row justify-center gap-4 lg:gap-16 m-4 lg:m-16 mb-12">
+    <div className=" flex flex-col items-center gap-4 sm:gap-12">
+      <GradientLabel
+        title={"NOSOTROS"}
+        width={"80%"}
+        textAlign={"center"}
+        justifyContent={"center"}
+      />
+      <div className="w-[80%] flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-16   ">
         <div className="flex flex-col justify-center items-center w-full lg:w-2/3">
-          <h1 className="text-lg lg:text-xl text-justify w-full">
+          <h1 className="text-lg lg:text-xl text-left w-full">
             <p className="font-semibold text-center text-2xl lg:text-4xl border-spacing-1">
               Nuestra Institución
             </p>
-            <p className="mt-8">
+            <p className="mt-2 sm:mt-8">
               Somos una institución educativa ubicada en el corazón de Chupaca,
               rodeados de un entorno natural privilegiado que inspira
               aprendizaje y crecimiento. Nuestra misión es &quot;formar

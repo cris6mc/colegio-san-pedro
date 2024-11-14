@@ -6,16 +6,18 @@ function Welcome() {
   return (
     <div className="flex flex-col md:flex-row m-10 md:m-24 justify-center items-center gap-8 md:gap-16">
       <Image
-        src="/images/LOGO.png" // Ruta de la imagen en la carpeta public
+        src="/images/LOGO.png"
         alt="Logo"
-        width={250} // Ancho de la imagen
-        height={179} // Altura de la imagen
-        className="w-1/2 md:w-auto" // Hacer la imagen responsive y más pequeña en móviles
+        width={250}
+        height={179}
+        className="w-1/2 md:w-auto"
       />
       <div className="text-center md:text-left">
-        <h1 className="text-xl md:text-2xl m-5 max-w-lg">
-          <p className="text-center font-bold mb-4">Bienvenidos</p>
-          <p className="text-center">
+        <h1 className="text-xl md:text-2xl m-5 max-w-lg dark:text-white text-dark">
+          <p className="text-center font-bold mb-4 dark:text-gray-300 text-gray-800">
+            Bienvenidos
+          </p>
+          <p className="text-center dark:text-gray-400 text-gray-700">
             Nos enorgullece ser una institución ambientalista, innovadora,
             inclusiva e intercultural. Nuestro compromiso es formar estudiantes
             autónomos y competentes, guiados por una cultura de paz. Únete a

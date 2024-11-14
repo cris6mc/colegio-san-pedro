@@ -23,7 +23,7 @@ const GradientLabel = ({
       className="py-2 md:py-8 justify-center md:justify-start"
       style={gradientStyle}
     >
-      <h2 className="text-center md:text-left text-3xl md:text-[4rem] font-semibold pl-[0rem] md:pl-[5rem]">
+      <h2 className="text-center md:text-left text-3xl md:text-[2.5rem] font-semibold pl-[0rem] md:pl-[5rem]">
         {title}
       </h2>
     </div>

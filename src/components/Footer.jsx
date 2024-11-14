@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaFacebook, FaTiktok, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <div className="relative bg-[#D2D2D2] p-6 mt-4 sm:mt-32 rounded-t-lg text-center hover:bg-gradient-to-r hover:from-[#E2EBC7] hover:to-[#C3E8FC] transition-all duration-500 ease-in-out">
+    <div className="relative bg-[#979797] p-6 mt-4 sm:mt-32 rounded-t-lg text-center transition-all duration-1000 ease-in-out hover:bg-gray-300 hover:text-black">
       <div className="absolute inset-x-0 top-0 transform -translate-y-1/3 flex justify-center">
         <div className="hidden sm:block">
           <Image
@@ -31,9 +32,19 @@ export default function Footer() {
           <div>
             <h3 className="font-bold">Redes Sociales</h3>
             <div className="flex space-x-4 justify-center">
-              <FaFacebook size={24} color="black" />
-              <FaTiktok size={24} color="black" />
-              <FaYoutube size={24} color="black" />
+              <Link
+                className="cursor-pointer"
+                href="https://www.facebook.com/profile.php?id=100038548874917"
+                target="_blank"
+              >
+                <FaFacebook size={24} color="black" />
+              </Link>
+              <Link href="https://www.tiktok.com" target="_blank">
+                <FaTiktok size={20} color="black" />
+              </Link>
+              <Link href="https://www.youtube.com" target="_blank">
+                <FaYoutube size={25} color="black" />
+              </Link>
             </div>
           </div>
         </div>
